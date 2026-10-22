@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#050916" />
+  <meta name="description" content="Blockchain City – thành phố Web3 3D tương tác với 1.000 thuật ngữ tiếng Việt, mô phỏng giao dịch Ethereum, Bitcoin và Solana." />
+  <title>BLOCKCHAIN CITY · Web3 Neon Atlas · 1.000 thuật ngữ</title>
+  <style>/*__INLINE_CSS__*/</style>
+</head>
+<body>
+<div id="app">
+  <canvas id="cityCanvas" aria-label="Thành phố blockchain mô phỏng ba chiều"></canvas>
+  <div id="fallbackCity"></div>
+  <div id="cityLabels" aria-hidden="true"></div>
+  <div class="scanline" aria-hidden="true"></div><div class="vignette" aria-hidden="true"></div>
+  <header class="topbar">
+    <div class="brand"><div class="brand-mark">⬡</div><div><b>BLOCKCHAIN<span> CITY</span></b><small>WEB3 NEON ATLAS <i>•</i> VIỆT HÓA 100%</small></div></div>
+    <nav class="view-modes" aria-label="Chế độ quan sát">
+      <button type="button" data-view="overview" class="active">◈ Tổng quan</button>
+      <button type="button" data-view="chain">▣ Blockchain</button>
+      <button type="button" data-view="crypto">✧ Mật mã</button>
+      <button type="button" data-view="defi">◇ DeFi</button>
+      <button type="button" data-view="solana">◎ Solana</button>
+    </nav>
+    <div class="top-actions"><span class="simulation-pill"><span class="status-dot"></span> CHẾ ĐỘ MÔ PHỎNG</span><button type="button" id="helpBtn" class="icon-btn" title="Hướng dẫn thao tác" aria-label="Hướng dẫn">?</button><button type="button" id="fullscreenBtn" class="icon-btn" title="Toàn màn hình" aria-label="Toàn màn hình">⛶</button></div>
+  </header>
+  <main>
+    <section class="panel glossary" id="glossaryPanel" aria-labelledby="glossaryHeading">
+      <div class="panel-title"><span id="glossaryHeading">◈ BÁCH KHOA BLOCKCHAIN</span><span class="small-count" id="totalBadge">1.000</span></div>
+      <p class="panel-subtitle">Khám phá thuật ngữ qua 20 khu của thành phố.</p>
+      <label class="search-wrap"><span class="search-icon">⌕</span><input id="searchInput" type="search" placeholder="Tìm thuật ngữ, khái niệm..." autocomplete="off" spellcheck="false" aria-label="Tìm kiếm thuật ngữ blockchain"/><kbd>/</kbd></label>
+      <div class="category-header"><span>BỘ LỌC CHỦ ĐỀ</span><button type="button" id="allCategories">Tất cả</button></div>
+      <div id="categoryList" class="categories" role="group" aria-label="Chọn chủ đề"></div>
+      <div class="term-head"><span>DANH SÁCH THUẬT NGỮ</span><span id="resultCount">1.000 kết quả</span></div>
+      <div class="term-scroll" id="termScroll"><div id="termList" class="term-list" role="list"></div><button type="button" id="loadMore" class="load-more" hidden>Xem thêm thuật ngữ ↓</button></div>
+      <div class="panel-footer"><span>◆</span> Chọn tên để xem định nghĩa và liên hệ với thành phố.</div>
+    </section>
+    <section class="panel inspector" id="inspectorPanel" aria-label="Bảng điều khiển thành phố">
+      <div class="inspector-top"><span>● CITY CONTROL CENTER</span><span class="mini-online">SIM ACTIVE</span></div>
+      <h2 id="districtTitle">Thành phố blockchain</h2>
+      <p id="districtDescription">20 khu chức năng thể hiện các khái niệm và hạ tầng Web3 bằng mô hình không gian ba chiều.</p>
+      <div class="district-visual"><div id="districtIcon">⬡</div><div><span>ĐANG QUAN SÁT</span><b id="districtName">Toàn thành phố</b></div></div>
+      <div class="metric-grid"><div><small>THUẬT NGỮ</small><strong id="metricTerms">1.000</strong></div><div><small>CHỦ ĐỀ</small><strong id="metricCategories">20</strong></div><div><small>KHỐI GIẢ LẬP</small><strong id="metricBlocks">18.642</strong></div><div><small>GIAO DỊCH</small><strong id="metricTx">0</strong></div></div>
+      <div class="inspector-bottom"><span>ĐIỀU KHIỂN KHUNG CẢNH</span><div class="control-buttons"><button type="button" id="resetCamera" title="Đặt lại góc nhìn">↺ Đặt lại</button><button type="button" id="rotateCamera" aria-pressed="false">⟳ Tự xoay</button><button type="button" id="pauseVisuals" aria-pressed="false">Ⅱ Hiệu ứng</button></div></div>
+      <div class="info-note">Tất cả số liệu, block và xe giao dịch là <b>giả lập</b>. Không sử dụng ví, RPC hay tài sản thực.</div>
+    </section>
+    <aside class="map-hint">↔ Kéo để xoay <span>·</span> Cuộn để thu phóng <span>·</span> Chọn một tòa nhà</aside>
+  </main>
+  <footer class="simulation" id="simulationPanel">
+    <div class="flow-heading"><div><span class="eyebrow">▸ MÔ PHỎNG VÒNG ĐỜI GIAO DỊCH</span><span id="simulationStage" class="stage-caption">Sẵn sàng khám phá</span></div><div class="simulation-actions"><select id="chainSelector" aria-label="Chọn blockchain mô phỏng"><option value="eth">Ethereum</option><option value="btc">Bitcoin</option><option value="sol">Solana</option></select><select id="speedSelector" aria-label="Tốc độ mô phỏng"><option value="1">1× tốc độ</option><option value="2">2× tốc độ</option><option value="4">4× tốc độ</option></select><button type="button" id="startTx" class="primary">▶ Bắt đầu</button><button type="button" id="resetTx" title="Đặt lại giao dịch">↺</button></div></div>
+    <div class="flow-stages" id="flowStages" aria-label="Các giai đoạn xử lý giao dịch"></div>
+    <div class="progress-track"><div id="txProgress"></div></div>
+    <div class="simulation-foot"><span id="txNarrative">Chọn mạng và bắt đầu để theo dõi một giao dịch đi qua thành phố.</span><span id="txLabel">TX DEMO / OFFLINE</span></div>
+  </footer>
+  <div class="mobile-tray"><button type="button" id="mobileTerms" aria-expanded="false">☷ Bách khoa <b>1.000</b></button><button type="button" id="mobileInfo" aria-expanded="false">⬡ Điều khiển</button></div>
+</div>
+<div id="modalOverlay" class="modal-overlay" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" tabindex="-1">
+    <div class="modal-head"><span id="modalCategory">BÁCH KHOA</span><button type="button" class="close-modal" id="closeModal" title="Đóng (Esc)" aria-label="Đóng cửa sổ">✕</button></div>
+    <h2 id="modalTitle"></h2>
+    <div class="modal-body"><section><h3>01 / ĐỊNH NGHĨA</h3><p id="modalDefinition"></p></section><section><h3>02 / ẨN DỤ THÀNH PHỐ</h3><p class="metaphor" id="modalMetaphor"></p></section><section><h3>03 / THUẬT NGỮ LIÊN QUAN</h3><div id="modalRelated" class="related"></div></section><section class="reference-line"><span>Tham khảo:</span> <a id="modalReference" href="#" rel="noopener noreferrer" target="_blank">Tài liệu kỹ thuật chính thức ↗</a></section></div>
+    <div class="modal-foot"><span id="modalSerial"></span><button type="button" id="copyTerm">⧉ Sao chép nội dung</button></div>
+  </div>
+</div>
+<div id="toast" role="status" aria-live="polite"></div>
+<script id="glossaryData" type="application/json">/*__INLINE_DATA__*/</script>
+<script>/*__INLINE_APP__*/</script>
+<script>/*__INLINE_FALLBACK__*/</script>
+<script type="module">/*__INLINE_3D__*/</script>
+</body></html>

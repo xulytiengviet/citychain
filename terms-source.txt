@@ -1,0 +1,1040 @@
+## wlt
+Wallet|Phần mềm hoặc thiết bị quản lý khóa, tài khoản và thao tác ký giao dịch.
+Address|Định danh công khai để nhận tài sản hoặc truy cập tài khoản trên một mạng.
+Private key|Giá trị bí mật cho phép tạo chữ ký mật mã hợp lệ.
+Public key|Khóa công khai dùng xác minh chữ ký tương ứng với khóa bí mật.
+Seed phrase|Chuỗi từ phục hồi có thể tái tạo nhiều khóa trong ví phân cấp.
+Mnemonic|Biểu diễn dữ liệu khôi phục thành các từ dễ sao lưu.
+BIP-39|Đề xuất Bitcoin chuẩn hóa việc chuyển entropy thành mnemonic và seed.
+BIP-32|Tiêu chuẩn ví phân cấp xác định cách dẫn xuất các khóa con.
+BIP-44|Quy ước cấu trúc đường dẫn dẫn xuất cho nhiều đồng tiền và tài khoản.
+HD wallet|Ví phân cấp sinh nhiều khóa từ một gốc bí mật.
+Derivation path|Chuỗi chỉ số xác định vị trí khóa con trong cây HD.
+Master seed|Dữ liệu gốc cấp đầu vào cho quá trình dẫn xuất khóa ví.
+Master key|Khóa cấp cao nhất trong cây khóa phân cấp.
+Child key|Khóa được suy ra từ một khóa cha theo quy tắc xác định.
+Extended public key|Khóa công khai kèm chain code để suy ra khóa công khai con.
+Extended private key|Khóa bí mật kèm chain code cho phép dẫn xuất nhánh khóa con.
+xpub|Cách mã hóa extended public key thường gặp trong ví Bitcoin.
+xprv|Cách mã hóa extended private key cần bảo vệ tuyệt đối.
+Chain code|Dữ liệu bổ sung trong BIP-32 phục vụ dẫn xuất khóa con.
+Hardened derivation|Nhánh dẫn xuất không thể tính từ khóa công khai mở rộng.
+Passphrase BIP-39|Chuỗi bổ sung làm thay đổi seed tạo ra từ mnemonic.
+Keystore|Tệp hoặc cấu trúc lưu khóa riêng dưới dạng đã mã hóa.
+Hardware wallet|Thiết bị ký giao dịch, thường giữ khóa riêng bên trong phần cứng.
+Software wallet|Ứng dụng quản lý tài khoản và ký giao dịch trên thiết bị.
+Hot wallet|Ví có thể kết nối môi trường trực tuyến để thực hiện giao dịch.
+Cold wallet|Phương án giữ khóa ký ngoài môi trường trực tuyến thường xuyên.
+Watch-only wallet|Ví theo dõi địa chỉ và số dư nhưng không có khóa ký.
+Paper wallet|Thông tin khóa được ghi trên vật liệu vật lý như giấy.
+Air-gapped signer|Thiết bị ký tách khỏi mạng khi xử lý khóa và giao dịch.
+Secure element|Chip chuyên dụng hỗ trợ lưu và xử lý bí mật trong vùng bảo vệ.
+Secure enclave|Môi trường phần cứng tách biệt để thực hiện thao tác nhạy cảm.
+Multisignature wallet|Ví yêu cầu một ngưỡng chữ ký theo quy tắc đã định.
+Threshold signature|Chữ ký được tạo qua giao thức phân chia quyền giữa nhiều bên.
+Social recovery|Cơ chế khôi phục quyền tài khoản thông qua người giám hộ.
+Guardian|Chủ thể được giao quyền hỗ trợ khôi phục tài khoản thông minh.
+Smart account|Tài khoản triển khai logic xác thực hoặc chi tiêu bằng chương trình.
+Account abstraction|Thiết kế tách việc xác thực giao dịch khỏi khóa EOA truyền thống.
+Session key|Khóa được cấp quyền tạm thời với phạm vi hoạt động giới hạn.
+Paymaster|Thành phần hỗ trợ tài trợ phí cho hoạt động của tài khoản thông minh.
+Bundler|Tác nhân đóng gói UserOperation để gửi qua EntryPoint.
+EntryPoint|Hợp đồng trung tâm xử lý UserOperation trong mô hình ERC-4337.
+UserOperation|Cấu trúc yêu cầu thao tác của tài khoản thông minh ERC-4337.
+EOA|Tài khoản Ethereum được kiểm soát bởi khóa riêng trực tiếp.
+Contract account|Tài khoản Ethereum có mã hợp đồng được thực thi khi gọi.
+Vanity address|Địa chỉ được lựa chọn để chứa mẫu ký tự mong muốn.
+Address checksum|Quy ước kiểm tra lỗi nhập địa chỉ bằng chữ hoa và chữ thường.
+Key rotation|Quy trình thay đổi khóa kiểm soát tài khoản nhằm giảm rủi ro.
+Key compromise|Sự cố bí mật khóa bị tiết lộ hoặc có khả năng bị sử dụng trái phép.
+Signing request|Yêu cầu ứng dụng đề nghị ví xác nhận một thông điệp hay giao dịch.
+Hardware signer|Thiết bị chuyên dùng xác nhận và ký nội dung giao dịch.
+
+## cry
+Cryptographic hash|Hàm ánh xạ dữ liệu đầu vào thành giá trị có độ dài cố định.
+SHA-256|Hàm băm 256 bit thuộc họ SHA-2 được Bitcoin sử dụng rộng rãi.
+Double SHA-256|Phép băm SHA-256 hai lần dùng trong nhiều cấu trúc Bitcoin.
+Keccak-256|Hàm băm nền tảng của Ethereum, khác chuẩn SHA3-256 ở đệm.
+SHA3-256|Chuẩn băm NIST dùng biến thể Keccak với miền phân biệt.
+RIPEMD-160|Hàm băm 160 bit trong một số cơ chế địa chỉ Bitcoin.
+HMAC|Mã xác thực thông điệp dựa trên khóa bí mật và hàm băm.
+HKDF|Phương pháp rút trích và mở rộng vật liệu khóa từ dữ liệu đầu vào.
+PBKDF2|Hàm dẫn xuất khóa từ mật khẩu sử dụng nhiều vòng lặp.
+Argon2|Hàm dẫn xuất khóa chống dò mật khẩu với yêu cầu bộ nhớ đáng kể.
+Entropy|Mức độ khó dự đoán của dữ liệu được dùng để sinh khóa.
+Salt|Giá trị bổ sung giúp phân biệt kết quả băm hoặc dẫn xuất khóa.
+Cryptographic nonce|Giá trị chỉ dùng theo điều kiện của giao thức để ngăn tái sử dụng.
+Digital signature|Bằng chứng mật mã xác nhận một khóa đã ký nội dung xác định.
+ECDSA|Lược đồ chữ ký số dựa trên đường cong elliptic.
+secp256k1|Đường cong elliptic dùng cho chữ ký Bitcoin và Ethereum EOA.
+Ed25519|Lược đồ chữ ký EdDSA phổ biến trong hệ sinh thái Solana.
+Schnorr signature|Chữ ký dựa trên logarit rời rạc hỗ trợ cấu trúc gộp linh hoạt.
+BIP-340|Đề xuất mô tả chữ ký Schnorr cho secp256k1 trong Bitcoin.
+BLS signature|Chữ ký trên phép ghép cặp có khả năng gộp chữ ký.
+Signature aggregation|Gộp nhiều chữ ký hoặc bằng chứng nhằm giảm khối lượng dữ liệu.
+Threshold cryptography|Bộ kỹ thuật chia sẻ thao tác mật mã giữa các nhóm có ngưỡng.
+Secret sharing|Phân chia bí mật thành các phần cần đủ ngưỡng để phục hồi.
+Shamir secret sharing|Cách chia bí mật dựa trên nội suy đa thức.
+MPC|Tính toán nhiều bên mà không cần tiết lộ toàn bộ dữ liệu đầu vào.
+Elliptic curve cryptography|Hệ mật mã dùng nhóm điểm trên đường cong elliptic.
+Discrete logarithm problem|Bài toán suy ra số mũ từ phần tử nhóm và cơ sở.
+ECDLP|Bài toán logarit rời rạc trên nhóm đường cong elliptic.
+Merkle tree|Cấu trúc cây băm cho phép kiểm tra thành viên hiệu quả.
+Merkle root|Giá trị băm ở đỉnh cây Merkle đại diện cho tập lá.
+Merkle proof|Dãy nút băm chứng minh sự có mặt của một lá trong cây.
+Merkle multiproof|Bằng chứng nén xác thực nhiều lá của cùng một cây.
+Merkle Patricia trie|Cấu trúc cây trạng thái có băm được Ethereum lịch sử sử dụng.
+Sparse Merkle tree|Cây Merkle có không gian khóa thưa để chứng minh giá trị.
+Verkle tree|Cấu trúc cam kết vectơ dùng để tạo bằng chứng trạng thái nhỏ.
+Polynomial commitment|Lược đồ cam kết vào đa thức và mở giá trị tại các điểm.
+KZG commitment|Cam kết đa thức sử dụng phép ghép cặp elliptic.
+Pedersen commitment|Cam kết che giá trị bằng phép toán nhóm và yếu tố ngẫu nhiên.
+Commit-reveal|Quy trình công bố cam kết trước rồi tiết lộ dữ liệu về sau.
+Zero-knowledge proof|Bằng chứng xác nhận mệnh đề mà không lộ thông tin bí mật.
+zk-SNARK|Bằng chứng không tiết lộ thường ngắn và kiểm tra nhanh.
+zk-STARK|Họ bằng chứng minh bạch dựa trên kiểm tra đa thức và hàm băm.
+Witness|Dữ liệu bí mật hoặc nội bộ giúp bộ chứng minh thỏa ràng buộc.
+Public input|Dữ liệu công khai được bộ xác minh sử dụng để kiểm chứng proof.
+Trusted setup|Giai đoạn sinh tham số dùng chung có giả định bảo mật riêng.
+Fiat-Shamir transform|Phương pháp chuyển giao thức chứng minh tương tác thành không tương tác.
+VRF|Hàm ngẫu nhiên có thể xác minh bằng chứng đầu ra.
+Homomorphic encryption|Mã hóa cho phép tính toán nhất định trên bản mã.
+Preimage resistance|Tính khó tìm đầu vào tạo ra một giá trị băm cho trước.
+Collision resistance|Tính khó tìm hai thông điệp khác nhau có cùng giá trị băm.
+
+## blk
+Block|Đơn vị chứa dữ liệu giao dịch được nối với lịch sử trước đó.
+Genesis block|Khối đầu tiên làm mốc khởi đầu của một blockchain.
+Block header|Phần siêu dữ liệu chứa cam kết và thông số của block.
+Block body|Phần dữ liệu nghiệp vụ như danh sách giao dịch trong block.
+Block height|Số lượng bước tính theo block từ mốc khởi đầu.
+Block hash|Giá trị băm nhận diện nội dung block theo thuật toán mạng.
+Parent hash|Giá trị băm trỏ về khối tiền nhiệm trong chuỗi.
+Transaction root|Giá trị cam kết đại diện cho tập giao dịch của block.
+Receipt root|Giá trị cam kết đại diện cho tập biên lai thực thi.
+State root|Giá trị cam kết trạng thái hệ thống tại một thời điểm khối.
+Timestamp|Dấu thời gian trong dữ liệu khối, tuân theo quy tắc từng mạng.
+Block interval|Khoảng thời gian giữa hai block liên tiếp.
+Block propagation|Quá trình truyền block mới tới các nút ngang hàng.
+Block verification|Quy trình kiểm tra quy tắc và dữ liệu của một block.
+Block proposal|Đề nghị một block mới để các thành viên mạng kiểm tra.
+Block producer|Chủ thể trực tiếp xây dựng hoặc đề xuất block.
+Block builder|Tác nhân sắp xếp các giao dịch và tổ chức nội dung block.
+Block proposer|Validator có quyền đề xuất block trong một slot.
+Fork|Tình huống lịch sử chuỗi có nhiều nhánh ứng viên.
+Chain reorganization|Việc thay nhánh được chấp nhận dẫn đến đảo lịch sử chưa chốt.
+Canonical chain|Nhánh lịch sử hiện được thuật toán chọn làm nhánh chuẩn.
+Orphan block|Block không còn nằm trên nhánh chính sau cạnh tranh hoặc reorg.
+Stale block|Block PoW hợp lệ nhưng không được chấp nhận vào chuỗi chính.
+Ommer block|Khối phụ trong quy tắc Ethereum PoW lịch sử.
+Checkpoint|Mốc chuỗi được sử dụng trong quá trình đồng thuận và chốt.
+Justified checkpoint|Mốc được bình chọn đạt ngưỡng theo quy tắc Casper FFG.
+Finalized checkpoint|Mốc đã được chốt theo cơ chế finality của mạng.
+Finality|Mức đảm bảo lịch sử giao dịch khó hoặc không thể bị đảo ngược.
+Probabilistic finality|Độ tin cậy tăng theo số khối được thêm sau giao dịch.
+Economic finality|Độ tin cậy dựa vào chi phí kinh tế của việc đảo lịch sử.
+Deterministic finality|Quy tắc chốt tạo bảo đảm rõ ràng trong giả định giao thức.
+Slot|Khoảng thời gian dành cho một cơ hội đề xuất block.
+Epoch|Nhóm slot dùng để tổ chức lịch hoạt động đồng thuận.
+Skipped slot|Slot trôi qua mà không có block hợp lệ được chấp nhận.
+Beacon block|Block thuộc tầng đồng thuận Ethereum Proof of Stake.
+Execution payload|Dữ liệu thực thi EVM được bao gói trong khối đồng thuận.
+Withdrawal list|Danh sách rút tiền từ tầng đồng thuận theo định dạng giao thức.
+Blob|Dữ liệu bổ sung dành cho giao dịch blob, có vòng đời khả dụng giới hạn.
+Blob sidecar|Phần dữ liệu và bằng chứng blob phát tán kèm block.
+Block gas limit|Tổng mức gas tối đa các giao dịch được phép tiêu trong block.
+Block gas used|Tổng lượng gas thực tế của các giao dịch trong block.
+Block base fee|Mức phí cơ bản trên mỗi đơn vị gas xác định theo giao thức.
+Block reward|Phần thưởng do giao thức cấp cho hoạt động tạo khối khi áp dụng.
+Halving event|Sự kiện giảm một nửa trợ cấp block theo lịch phát hành.
+Difficulty target|Ngưỡng băm block phải đáp ứng trong khai thác Proof of Work.
+Nonce field|Trường được thay đổi để thử tạo băm block đáp ứng mục tiêu.
+Extra data|Trường thông tin phụ bên trong header theo quy tắc mạng.
+Bloom filter header|Cấu trúc băm tóm tắt giúp lọc log của block.
+Block explorer|Dịch vụ tra cứu lịch sử block, giao dịch và trạng thái.
+Archive snapshot|Ảnh chụp trạng thái lịch sử do hệ thống lưu trữ duy trì.
+
+## tx
+Transaction|Thông điệp được ký hoặc xác thực yêu cầu thay đổi trạng thái mạng.
+Transaction hash|Giá trị băm định danh giao dịch theo cách mã hóa từng chain.
+Transaction sender|Tài khoản khởi tạo và chịu trách nhiệm xác thực giao dịch.
+Transaction recipient|Địa chỉ nhận tài sản hoặc chương trình được gọi.
+Transfer value|Lượng tài sản gốc gửi trong một giao dịch.
+Input data|Byte dữ liệu gửi kèm để xác định hành động cần thực hiện.
+Calldata|Dữ liệu đầu vào bất biến trong ngữ cảnh gọi hàm EVM.
+Transaction nonce|Số thứ tự kiểm soát giao dịch của tài khoản trong Ethereum.
+Transaction signature|Chữ ký xác nhận người gửi đã phê duyệt nội dung giao dịch.
+Signature r|Thành phần số nguyên r trong chữ ký ECDSA.
+Signature s|Thành phần số nguyên s trong chữ ký ECDSA.
+Signature v|Thành phần phục hồi hoặc parity trong định dạng chữ ký Ethereum.
+Chain ID|Mã mạng được dùng để nhận diện chuỗi và chống replay.
+Pending transaction|Giao dịch đã phát tán nhưng chưa có kết quả xác nhận.
+Transaction mempool|Tập các giao dịch đang chờ được node quản lý.
+Transaction propagation|Quá trình nút gửi giao dịch tới các nút khác trong mạng.
+Transaction ordering|Quy tắc lựa chọn thứ tự thực thi các giao dịch.
+Transaction inclusion|Sự kiện giao dịch được ghi trong một block.
+Transaction confirmation|Mức độ giao dịch được ghi và có thêm lịch sử sau đó.
+Transaction receipt|Dữ liệu ghi nhận kết quả thực thi như trạng thái và gas.
+Transaction status|Thông tin thành công hay thất bại của quá trình thực thi.
+Transaction revert|Hành động hủy thay đổi trạng thái trong phạm vi thực thi.
+Out-of-gas failure|Thất bại khi không còn đủ ngân sách gas cho thao tác.
+Intrinsic gas|Chi phí gas tối thiểu được xác định từ kiểu và dữ liệu giao dịch.
+Access list|Danh sách địa chỉ và slot được khai trước để tối ưu truy cập.
+Legacy transaction|Kiểu giao dịch Ethereum cũ dùng một mức gasPrice.
+Type-1 transaction|Giao dịch EIP-2930 có access list.
+Type-2 transaction|Giao dịch EIP-1559 dùng base fee và priority fee.
+Type-3 transaction|Giao dịch Ethereum chứa cam kết blob theo EIP-4844.
+Max fee per gas|Mức giá gas trần người gửi chấp nhận.
+Max priority fee per gas|Mức tip gas tối đa người gửi dành cho proposer.
+Effective gas price|Giá mỗi đơn vị gas thực sự tính cho giao dịch.
+Transaction replacement|Thay giao dịch chờ bằng giao dịch cùng nonce theo quy tắc node.
+Replace-by-fee|Chiến lược trả phí cao hơn để thay giao dịch chưa xác nhận.
+Cancel pending transaction|Gửi giao dịch thay thế cùng nonce để vô hiệu tác vụ đang chờ.
+Dropped transaction|Giao dịch bị loại khỏi vùng nhớ đệm chờ của node.
+Stuck transaction|Giao dịch chờ quá lâu do mức phí hoặc điều kiện mạng.
+Event log|Bản ghi dữ liệu ứng dụng phát ra trong khi thực thi contract.
+Log topic|Trường băm chủ đề để lọc log theo sự kiện.
+Indexed event parameter|Tham số log nằm trong topic, tối ưu việc truy vấn.
+Log bloom|Bộ lọc xác suất giúp sàng lọc các log có thể phù hợp.
+Transaction trace|Chuỗi thao tác hoặc lời gọi nội bộ của giao dịch.
+Internal call|Lời gọi xảy ra bên trong quá trình thực thi contract.
+Atomic transaction|Giao dịch có các thay đổi trạng thái được chấp nhận cùng nhau.
+Batch transaction|Giao dịch gom nhiều thao tác theo cơ chế ứng dụng.
+Transaction bundle|Nhóm giao dịch có quy tắc gửi hoặc thứ tự xử lý phối hợp.
+Private orderflow|Luồng giao dịch truyền qua kênh riêng thay vì công khai rộng.
+Cross-chain transaction|Hoạt động phối hợp chuyển giá trị hoặc thông điệp giữa các chain.
+Transaction simulation|Thử thực thi trước để dự đoán lỗi và tác động trạng thái.
+Transaction finalization|Quá trình tiến từ đã ghi khối tới trạng thái chốt của mạng.
+
+## cns
+Consensus mechanism|Tập quy tắc giúp các nút thống nhất lịch sử hợp lệ.
+Proof of Work|Cơ chế chọn block dựa trên công việc tính toán có thể xác minh.
+Proof of Stake|Cơ chế đồng thuận dựa trên tài sản đặt cược và quy tắc phạt.
+Delegated Proof of Stake|Mô hình chủ sở hữu token ủy quyền quyền xác thực cho đại diện.
+Proof of Authority|Cơ chế mạng dựa trên nhóm người xác thực được cấp phép.
+Proof of History|Chuỗi phép tính tạo bằng chứng về thứ tự và thời gian tương đối.
+Nakamoto consensus|Họ quy tắc PoW chọn nhánh dựa trên công việc tích lũy.
+Byzantine fault tolerance|Khả năng giữ đồng thuận dù một số thành viên hành xử tùy ý.
+Byzantine agreement|Bài toán để thành viên trung thực đạt quyết định chung.
+Byzantine validator|Nút xác thực có thể gửi thông điệp sai hoặc mâu thuẫn.
+Safety property|Tính chất ngăn mạng chấp nhận hai kết quả chốt xung đột.
+Liveness property|Tính chất bảo đảm hệ thống vẫn có thể tiếp tục xử lý.
+Quorum|Ngưỡng tham gia hoặc phiếu cần thiết để công nhận quyết định.
+Supermajority threshold|Ngưỡng phiếu vượt quá đa số thông thường theo giao thức.
+Committee|Nhóm người xác thực tham gia một nhiệm vụ bỏ phiếu.
+Attestation|Phiếu ký xác nhận quan điểm của validator về chain.
+Attestation aggregation|Quá trình gộp nhiều phiếu xác nhận thành cấu trúc ngắn hơn.
+Fork-choice rule|Quy tắc chọn nhánh block thích hợp trong số các ứng viên.
+LMD-GHOST|Thuật toán chọn nhánh sử dụng phiếu mới nhất của validator.
+Casper FFG|Cơ chế chốt mốc đồng thuận Ethereum PoS.
+Tendermint BFT|Họ thuật toán đồng thuận BFT với các vòng bỏ phiếu.
+CometBFT|Bộ máy đồng thuận BFT kế thừa họ Tendermint.
+HotStuff|Họ giao thức BFT tối ưu hóa quy trình chốt theo chuỗi.
+PBFT|Giao thức đồng thuận Byzantine thực dụng cho môi trường định danh.
+IBFT|Biến thể đồng thuận chịu lỗi Byzantine dùng trên một số mạng EVM.
+QBFT|Thuật toán Byzantine quorum sử dụng trong mạng cấp phép.
+Raft|Thuật toán đồng thuận chịu lỗi dừng, không chống lỗi Byzantine.
+Paxos|Họ thuật toán đồng thuận phân tán dưới giả định lỗi dừng.
+Avalanche consensus|Họ giao thức lấy mẫu ngẫu nhiên lặp lại để hình thành quyết định.
+Validator|Thành viên thực hiện nhiệm vụ xác thực theo cơ chế mạng.
+Delegator|Chủ thể ủy quyền stake cho một validator hoặc nhóm xác thực.
+Validator set|Tập validator đủ điều kiện tham gia đồng thuận tại thời điểm.
+Proposer schedule|Lịch xác định ai được đề xuất block ở các slot.
+Leader election|Cơ chế chọn một tác nhân dẫn dắt vòng đồng thuận.
+Committee selection|Cách chọn nhóm validator tham gia xác nhận block.
+Validator activation|Giai đoạn validator trở nên đủ điều kiện hoạt động.
+Validator exit|Quy trình validator ngừng tham gia đồng thuận.
+Slashing|Hình phạt trừ stake cho hành vi có thể chứng minh vi phạm.
+Inactivity leak|Cơ chế giảm số dư validator vắng mặt trong điều kiện không finality.
+Double proposal|Hành vi đề xuất các block mâu thuẫn trong cùng quyền đề xuất.
+Double voting|Hành vi bỏ phiếu xung đột theo quy tắc nhận diện của giao thức.
+Surround vote|Loại phiếu vi phạm quy tắc Casper FFG về miền checkpoint.
+Sync committee|Nhóm validator ký thông tin hỗ trợ light client Ethereum.
+RANDAO|Cơ chế đóng góp giá trị ngẫu nhiên vào giao thức PoS.
+Weak subjectivity|Giả định cần mốc gần đây đáng tin khi đồng bộ PoS từ xa.
+Long-range attack|Tấn công tạo lịch sử thay thế rất xa trong quá khứ.
+Nothing-at-stake|Động lực bỏ phiếu nhiều nhánh khi thiếu cơ chế ràng buộc.
+Sybil resistance|Cơ chế khiến việc tạo danh tính giả hàng loạt trở nên tốn kém.
+Finality gadget|Thành phần bổ sung cơ chế chốt vào hệ thống lựa chọn nhánh.
+Economic security|Bảo đảm bảo mật dựa vào chi phí và động lực của tác nhân.
+
+## ctr
+Smart contract|Chương trình trên blockchain thực thi điều kiện và cập nhật trạng thái.
+Contract deployment|Quá trình tạo địa chỉ và lưu mã thực thi hợp đồng lên chain.
+Contract address|Địa chỉ trỏ đến tài khoản chứa mã hợp đồng.
+Creation bytecode|Mã thực hiện triển khai và trả về runtime bytecode.
+Runtime bytecode|Mã máy còn lại tại địa chỉ hợp đồng sau triển khai.
+Contract ABI|Quy ước mã hóa lời gọi, tham số và kết quả hợp đồng.
+Function selector|Bốn byte đầu nhận diện hàm khi gọi hợp đồng EVM.
+Solidity|Ngôn ngữ lập trình hợp đồng thông minh hướng tới EVM.
+Vyper|Ngôn ngữ lập trình hợp đồng thông minh hướng tới EVM theo thiết kế tối giản.
+Constructor|Hàm khởi tạo chạy trong quá trình triển khai hợp đồng.
+Fallback function|Hàm nhận các lời gọi không trùng selector hoặc không có dữ liệu.
+Receive function|Hàm chuyên xử lý ETH gửi vào mà không có calldata.
+Payable function|Hàm cho phép nhận tiền gốc của mạng trong lời gọi.
+View function|Hàm không được phép thay đổi trạng thái trong quy tắc ngôn ngữ.
+Pure function|Hàm không đọc cũng không cập nhật trạng thái blockchain.
+Function modifier|Cơ chế tái sử dụng điều kiện trước hoặc sau nội dung hàm.
+Event emission|Lệnh ghi log để ứng dụng khác theo dõi hoạt động hợp đồng.
+Custom error|Thông báo lỗi mã hóa gọn hơn revert string thông thường.
+Require statement|Điều kiện kiểm tra đầu vào, gây revert khi không thỏa.
+Assert statement|Câu lệnh kiểm tra bất biến nội bộ chương trình.
+Revert statement|Lệnh hoàn nguyên các thay đổi trong lời gọi hiện tại.
+Try-catch|Cấu trúc bắt lỗi từ thao tác tạo hoặc gọi hợp đồng bên ngoài.
+Contract interface|Định nghĩa bề mặt hàm và sự kiện mà không triển khai logic.
+Abstract contract|Hợp đồng còn thành phần chưa được triển khai đầy đủ.
+Contract inheritance|Cơ chế lớp hợp đồng kế thừa mã hoặc thành viên từ lớp khác.
+Function overloading|Khai báo nhiều hàm cùng tên với chữ ký tham số khác nhau.
+Function overriding|Thay đổi triển khai hàm được kế thừa từ hợp đồng cha.
+Visibility public|Phạm vi cho phép gọi thành viên trong và ngoài hợp đồng.
+Visibility external|Phạm vi cho phép hàm được gọi từ bên ngoài hợp đồng.
+Visibility internal|Phạm vi cho phép thành viên được dùng trong cây kế thừa.
+Visibility private|Phạm vi sử dụng bên trong hợp đồng khai báo.
+Immutable variable|Biến chỉ được gán trong giai đoạn khởi tạo phù hợp.
+Constant variable|Giá trị không thay đổi và được biểu diễn như hằng số.
+Mapping type|Kiểu ánh xạ khóa sang giá trị trong storage Solidity.
+Struct type|Kiểu cấu trúc gồm nhiều trường dữ liệu được định nghĩa.
+Enum type|Kiểu liệt kê tập giá trị có thứ tự đặt tên.
+Dynamic array|Mảng có độ dài thay đổi trong bộ nhớ hoặc lưu trữ.
+Fixed array|Mảng có số phần tử cố định tại thời điểm định kiểu.
+Storage layout|Quy tắc bố trí trường và biến trong các slot lưu trữ.
+Storage slot|Ô có địa chỉ 256 bit dùng lưu dữ liệu bền vững EVM.
+Storage packing|Cơ chế đặt nhiều giá trị nhỏ vào chung một slot.
+Proxy contract|Hợp đồng chuyển lời gọi tới mã triển khai khác.
+Delegatecall proxy|Proxy thực thi code logic khác trong ngữ cảnh storage của mình.
+Transparent proxy|Mẫu proxy phân tách quyền quản trị với lời gọi người dùng.
+UUPS proxy|Mẫu nâng cấp đặt logic quản trị nâng cấp ở implementation.
+Beacon proxy|Proxy đọc địa chỉ implementation từ một beacon dùng chung.
+Minimal proxy|Proxy nhỏ tuân theo mẫu clone EIP-1167.
+Diamond standard|Kiến trúc hợp đồng nhiều facet dựa trên EIP-2535.
+Initializer function|Hàm thiết lập trạng thái ban đầu cho hợp đồng proxy.
+Reentrancy guard|Biện pháp ngăn hoặc kiểm soát gọi lặp xâm nhập.
+
+## evm
+Ethereum Virtual Machine|Máy ảo thực thi opcode và chuyển trạng thái hợp đồng Ethereum.
+EVM opcode|Lệnh máy riêng lẻ được máy ảo EVM xử lý.
+EVM stack|Ngăn xếp tính toán giới hạn độ sâu trong EVM.
+EVM memory|Vùng nhớ tạm thời đánh địa chỉ theo byte trong một call.
+EVM storage|Không gian key-value bền vững của một tài khoản hợp đồng.
+EVM transient storage|Vùng lưu trữ chỉ tồn tại trong giao dịch theo EIP-1153.
+Program counter|Vị trí lệnh hiện tại của tiến trình máy ảo EVM.
+Return data buffer|Vùng chứa byte kết quả của lời gọi ngoài gần nhất.
+CALL opcode|Gọi một tài khoản khác với context và giá trị tùy chọn.
+DELEGATECALL opcode|Thực thi code ngoài nhưng giữ storage và msg.sender context.
+STATICCALL opcode|Gọi code với ràng buộc không được thay đổi trạng thái.
+CALLCODE opcode|Lệnh gọi kiểu cũ được thay thế phần lớn bởi delegatecall.
+CREATE opcode|Lệnh tạo tài khoản hợp đồng mới từ creation bytecode.
+CREATE2 opcode|Lệnh tạo địa chỉ hợp đồng có thể tính trước từ salt và mã.
+SELFDESTRUCT opcode|Lệnh chuyển số dư; sau EIP-6780 đa số trường hợp không xóa code.
+STOP opcode|Kết thúc thành công khung thực thi hiện tại.
+RETURN opcode|Kết thúc khung thực thi và trả dữ liệu từ memory.
+REVERT opcode|Hủy thay đổi trong khung thực thi và trả dữ liệu lỗi.
+INVALID opcode|Opcode gây kết thúc ngoại lệ khi được thực thi.
+JUMP opcode|Nhảy đến đích hợp lệ theo định dạng bytecode cũ.
+JUMPI opcode|Nhảy có điều kiện tới vị trí được đánh dấu hợp lệ.
+JUMPDEST opcode|Đánh dấu điểm đích cho các lệnh nhảy cũ.
+PUSH0 opcode|Đẩy hằng số 0 lên stack bằng lệnh riêng.
+PUSH1 opcode|Đẩy một byte dữ liệu ngay sau lệnh lên stack.
+PUSH32 opcode|Đẩy 32 byte dữ liệu ngay sau lệnh lên stack.
+POP opcode|Lấy bỏ phần tử trên đỉnh stack.
+DUP1 opcode|Sao chép phần tử thứ nhất tính từ đỉnh stack.
+DUP16 opcode|Sao chép phần tử thứ mười sáu tính từ đỉnh stack.
+SWAP1 opcode|Hoán vị hai phần tử trên cùng stack.
+SWAP16 opcode|Hoán đổi đỉnh stack với phần tử thứ mười bảy.
+ADD opcode|Cộng hai giá trị theo số học 256 bit.
+SUB opcode|Trừ hai giá trị theo số học 256 bit.
+MUL opcode|Nhân hai giá trị theo số học 256 bit.
+DIV opcode|Chia số nguyên không dấu.
+SDIV opcode|Chia số nguyên có dấu.
+MOD opcode|Lấy phần dư của phép chia không dấu.
+SMOD opcode|Lấy phần dư trong phép chia có dấu.
+ADDMOD opcode|Cộng rồi lấy dư với độ chính xác trung gian đầy đủ.
+MULMOD opcode|Nhân rồi lấy dư với độ chính xác trung gian đầy đủ.
+EXP opcode|Tính lũy thừa theo số học EVM.
+SIGNEXTEND opcode|Mở rộng bit dấu của một giá trị.
+LT opcode|So sánh nhỏ hơn trên số không dấu.
+GT opcode|So sánh lớn hơn trên số không dấu.
+SLT opcode|So sánh nhỏ hơn trên số có dấu.
+SGT opcode|So sánh lớn hơn trên số có dấu.
+EQ opcode|Kiểm tra hai giá trị có bằng nhau không.
+ISZERO opcode|Kiểm tra giá trị có bằng không không.
+AND opcode|Phép AND theo bit.
+OR opcode|Phép OR theo bit.
+XOR opcode|Phép XOR theo bit.
+
+## gas
+Gas metering|Cơ chế định lượng tài nguyên thực thi bằng đơn vị gas.
+Gas unit|Đơn vị tính công việc tính toán của EVM.
+Gas price|Giá tính bằng tiền gốc mạng cho mỗi đơn vị gas.
+Gwei|Đơn vị bằng một phần tỷ ETH.
+Wei|Đơn vị nhỏ nhất của ETH, bằng 10^-18 ETH.
+Ether denomination|Đơn vị tiền gốc ETH dùng thanh toán phí Ethereum.
+Gas fee|Số tiền phải trả dựa trên lượng gas tiêu hao và giá gas.
+Gas limit per transaction|Ngưỡng gas cao nhất được phép tiêu cho giao dịch.
+Gas used per transaction|Lượng gas thực tế đã tiêu trong quá trình thực thi.
+Remaining gas|Phần ngân sách gas còn lại ở thời điểm thực thi.
+Base fee per gas|Mức phí cơ bản do giao thức đặt theo nhu cầu block.
+Priority fee|Phần phí thưởng bổ sung người dùng đề nghị cho proposer.
+Fee cap|Mức giá tối đa được chấp nhận trên mỗi đơn vị gas.
+Tip cap|Giới hạn phần tip trên mỗi đơn vị gas.
+EIP-1559 fee market|Cơ chế phí có base fee biến thiên và priority fee.
+Dynamic base fee|Cơ chế tự điều chỉnh base fee theo mức sử dụng block.
+Base fee burn|Phần ETH từ base fee bị loại khỏi lưu hành theo quy tắc mạng.
+Gas estimation|Quy trình mô phỏng để ước lượng ngân sách gas cần thiết.
+Intrinsic transaction cost|Chi phí bắt buộc trước khi EVM chạy nội dung giao dịch.
+Calldata gas cost|Chi phí liên quan đến số byte và thành phần của calldata.
+Memory expansion cost|Gas tăng theo vùng nhớ EVM được mở rộng khi chạy.
+Cold account access|Lần chạm tài khoản đầu trong giao dịch chịu chi phí truy cập cao hơn.
+Warm account access|Truy cập tài khoản đã được đánh dấu dùng trong giao dịch.
+Cold storage access|Lần đọc hoặc ghi slot trước khi được làm nóng trong giao dịch.
+Warm storage access|Truy cập slot đã được ghi nhận trong access set.
+SLOAD gas cost|Chi phí đọc slot trạng thái phụ thuộc tình trạng truy cập.
+SSTORE gas cost|Chi phí ghi slot phụ thuộc giá trị cũ và mới.
+Log emission cost|Gas tiêu để lưu event logs từ hợp đồng.
+Contract creation cost|Gas tiêu cho khởi tạo và lưu runtime bytecode.
+Code deposit cost|Chi phí khi ghi bytecode triển khai vào trạng thái tài khoản.
+Keccak opcode cost|Chi phí băm dữ liệu phụ thuộc số word xử lý.
+CALL stipend|Lượng gas giới hạn chuyển theo một số quy tắc gọi có giá trị.
+Gas forwarding|Quy tắc chuyển gas từ lời gọi cha sang lời gọi con.
+EIP-150 gas rule|Quy tắc giới hạn gas có thể chuyển xuống frame con.
+Out-of-gas exception|Lỗi khi thao tác cần nhiều gas hơn lượng còn lại.
+Reverted transaction fee|Phí vẫn bị tính cho lượng công việc dù thực thi hoàn nguyên.
+Gas refund|Khoản hoàn gas theo quy tắc khi thực hiện thao tác đủ điều kiện.
+Refund quotient|Quy tắc giới hạn tỷ lệ gas được hoàn trong một giao dịch.
+Effective fee calculation|Phép nhân gas đã dùng với giá gas thực tế.
+Transaction fee sponsor|Bên khác chịu phí giao dịch thay cho tài khoản thực hiện.
+Gas abstraction|Lớp ứng dụng che hoặc thay đổi cách người dùng chi trả phí.
+Meta-transaction|Giao dịch có bên chuyển tiếp gửi hành động đã được người dùng ký.
+Relayer fee|Khoản chi trả cho tác nhân chuyển tiếp dữ liệu hay giao dịch.
+Fee oracle|Dịch vụ đề xuất mức phí dựa trên tình trạng mạng.
+Gas price oracle|Công cụ ước lượng mức giá gas phù hợp.
+Blob gas|Đơn vị đo lượng dữ liệu blob được xử lý và định giá riêng.
+Blob base fee|Phí cơ bản riêng cho không gian dữ liệu blob.
+Excess blob gas|Giá trị phản ánh độ vượt mục tiêu dữ liệu blob trong cơ chế phí.
+L1 data fee|Chi phí L2 liên quan đến việc đăng dữ liệu lên lớp 1.
+L2 execution fee|Chi phí thực thi giao dịch trên mạng lớp 2.
+
+## tkn
+Fungible token|Đơn vị tài sản có thể thay thế bằng đơn vị cùng loại.
+Non-fungible token|Tài sản có định danh riêng, không thay thế trực tiếp từng đơn vị.
+Native coin|Đồng tiền gốc do giao thức blockchain định nghĩa.
+Token contract|Hợp đồng thực thi quy tắc phát hành, số dư và chuyển token.
+ERC-20|Chuẩn giao diện token thay thế được trên EVM.
+ERC-721|Chuẩn giao diện NFT với định danh riêng từng token.
+ERC-1155|Chuẩn hợp đồng quản lý nhiều loại token và NFT.
+ERC-777|Đề xuất token có cơ chế hook cho luồng chuyển.
+ERC-4626|Chuẩn giao diện vault token hóa tài sản có lợi suất.
+ERC-2612|Mở rộng ERC-20 cho phép permit dựa trên chữ ký.
+ERC-2981|Giao diện công bố thông tin royalty cho NFT.
+ERC-1271|Giao diện xác thực chữ ký từ tài khoản hợp đồng.
+ERC-165|Giao diện nhận biết hợp đồng hỗ trợ interface nào.
+ERC-1967|Chuẩn slot lưu địa chỉ quản trị và logic proxy.
+ERC-4337|Chuẩn tài khoản trừu tượng qua UserOperation và EntryPoint.
+ERC-3156|Chuẩn giao diện cho hoạt động flash loan.
+Token balance|Lượng token mà một tài khoản nắm giữ theo hợp đồng.
+Total supply|Tổng số đơn vị token đã phát hành trừ lượng hủy theo quy tắc.
+Circulating supply|Ước tính lượng token hiện lưu thông trên thị trường.
+Maximum supply|Ngưỡng tổng cung cao nhất theo chính sách token.
+Token decimals|Số chữ số thập phân quy ước để hiển thị token.
+Token symbol|Ký hiệu ngắn của một loại token.
+Token name|Tên đọc được dành cho hợp đồng token.
+Token metadata|Thông tin mô tả tài sản như tên, ảnh và thuộc tính.
+TokenURI|Đường tham chiếu tới dữ liệu mô tả NFT.
+Minting|Quy trình tạo thêm token theo quyền và quy tắc giao thức.
+Token burn|Thao tác làm giảm lượng token còn lưu hành.
+Token transfer|Thao tác thay đổi chủ sở hữu token giữa các tài khoản.
+Token approval|Cấp quyền cho bên thứ ba sử dụng token theo điều kiện.
+Token allowance|Hạn mức token mà một spender được phép chuyển.
+TransferFrom|Hàm ERC-20 chuyển token dựa trên quyền được cấp trước.
+Permit signature|Chữ ký cấp quyền token không cần giao dịch approve riêng.
+Token freeze|Cơ chế ngăn chuyển một phần tài sản khi hợp đồng cho phép.
+Token clawback|Quyền thu hồi token theo điều khoản hợp đồng.
+Token blacklist|Danh sách địa chỉ bị từ chối theo chính sách hợp đồng.
+Token allowlist|Danh sách địa chỉ được cấp quyền tham gia tương tác.
+Wrapped token|Đại diện token cho một tài sản được bao gói hoặc khóa.
+WETH|Phiên bản ERC-20 tương ứng ETH được bao gói.
+WBTC|Đại diện Bitcoin dưới dạng token trên các mạng khác.
+Stablecoin|Tài sản số thiết kế để ổn định giá so với tài sản tham chiếu.
+Fiat-backed stablecoin|Stablecoin dựa vào dự trữ ngoại chuỗi bằng tiền pháp định.
+Crypto-collateralized stablecoin|Stablecoin thế chấp bằng tài sản mã hóa theo quy tắc.
+Algorithmic stablecoin|Stablecoin thử điều tiết giá bằng cơ chế thuật toán, có rủi ro depeg.
+Rebasing token|Token điều chỉnh số dư hoặc nguồn cung qua các chu kỳ.
+Governance token|Token được dùng để tham gia cơ chế quản trị.
+Utility token|Token cấp quyền hoặc thanh toán tiện ích trong hệ thống.
+Security token|Token có tính chất chứng khoán tùy quy định pháp lý liên quan.
+Soulbound token|Token thiết kế không thể chuyển nhượng trong sử dụng thông thường.
+Vesting schedule|Lịch mở khóa phân bổ tài sản dần theo thời gian.
+Tokenomics|Tập quy tắc kinh tế về cung cầu và động lực token.
+
+## defi
+Decentralized finance|Hệ ứng dụng tài chính chạy qua smart contract và mạng blockchain.
+DEX|Sàn hoán đổi tài sản dựa trên hợp đồng hoặc cơ chế phi tập trung.
+CEX|Sàn giao dịch có đơn vị vận hành tập trung và kiểm soát lưu ký.
+Automated market maker|Thuật toán định giá và hoán đổi dựa trên trạng thái pool.
+Constant product AMM|Mô hình tạo lập thị trường thường dùng bất biến x nhân y.
+Concentrated liquidity|Thanh khoản được cung cấp cho phạm vi giá xác định.
+Liquidity pool|Nguồn dự trữ tài sản phục vụ cơ chế hoán đổi hoặc cho vay.
+Liquidity provider|Chủ thể cung cấp tài sản vào pool và chịu rủi ro tương ứng.
+LP token|Token đại diện quyền lợi trong một vị thế cung cấp thanh khoản.
+Impermanent loss|Sai lệch giá trị giữ LP so với chỉ nắm giữ tài sản ban đầu.
+Slippage|Chênh lệch giữa giá kỳ vọng và giá thực thi giao dịch.
+Price impact|Tác động của quy mô lệnh lên tỷ lệ hoán đổi của pool.
+Swap route|Đường đi qua một hoặc nhiều pool để đổi cặp tài sản.
+DEX aggregator|Ứng dụng tìm tuyến hoán đổi giữa nhiều nguồn thanh khoản.
+Order book|Cấu trúc lưu các lệnh mua và bán tại nhiều mức giá.
+Limit order|Lệnh đặt điều kiện giá tối đa mua hoặc tối thiểu bán.
+Market order|Lệnh ưu tiên thực hiện theo thanh khoản giá hiện có.
+Stop order|Lệnh phát sinh khi giá đạt mức kích hoạt được cấu hình.
+Lending protocol|Hợp đồng điều phối cung cấp và vay tài sản với điều kiện.
+Supply APY|Lợi suất ước tính thường niên cho người gửi tài sản.
+Borrow APR|Mức lãi suất đơn theo năm mà người vay phải trả.
+Collateral|Tài sản được khóa nhằm bảo đảm nghĩa vụ khoản vay.
+Overcollateralization|Yêu cầu tài sản thế chấp lớn hơn giá trị khoản vay.
+Loan-to-value ratio|Tỷ lệ giá trị khoản vay so với tài sản bảo đảm.
+Health factor|Chỉ số đo mức an toàn của vị thế vay thế chấp.
+Liquidation threshold|Ngưỡng rủi ro kích hoạt thanh lý theo giao thức.
+Liquidation bonus|Ưu đãi cho tác nhân thực hiện thanh lý khoản vay.
+Liquidator|Tác nhân thực hiện thanh lý vị thế không đủ thế chấp.
+Flash loan|Khoản vay buộc phải được hoàn trả trong cùng giao dịch nguyên tử.
+Flash swap|Cơ chế nhận tài sản trước và hoàn tất nghĩa vụ ngay trong giao dịch.
+Yield farming|Chiến lược phân bổ vốn để thu phần thưởng hoặc phí giao thức.
+Yield aggregator|Giao thức tự phối hợp các chiến lược sinh lợi.
+Auto-compounding|Chiến lược tái đầu tư phần thưởng để tích lũy theo chu kỳ.
+Vault strategy|Logic quản lý tài sản trong một vault tự động.
+Liquid staking|Đặt cược tài sản và nhận token đại diện vị thế.
+Liquid staking token|Token thể hiện quyền lợi trên tài sản staking.
+Restaking|Tái sử dụng tài sản đã stake để bảo đảm dịch vụ khác.
+Perpetual swap|Sản phẩm phái sinh không có thời hạn đáo hạn cố định.
+Funding rate|Khoản thanh toán định kỳ cân bằng vị thế long và short.
+Mark price|Giá tham chiếu dùng để tính lãi lỗ và thanh lý phái sinh.
+Index price|Giá tổng hợp từ thị trường tham chiếu bên ngoài.
+Open interest|Tổng quy mô vị thế phái sinh đang mở theo đơn vị quy ước.
+Leverage|Hệ số mở vị thế lớn hơn phần vốn tự có.
+Margin|Tài sản ký quỹ hỗ trợ vị thế có đòn bẩy.
+Initial margin|Lượng ký quỹ tối thiểu khi mở vị thế.
+Maintenance margin|Lượng ký quỹ tối thiểu để duy trì vị thế.
+Time-weighted average price|Phương pháp tính giá trung bình có trọng số theo thời gian.
+Arbitrage|Chiến lược khai thác chênh lệch giá giữa các thị trường.
+Maximal extractable value|Giá trị có thể thu từ quyền chọn và sắp thứ tự giao dịch.
+Sandwich attack|Tấn công giao dịch trước và sau lệnh nạn nhân để trục lợi.
+
+## nft
+NFT collection|Nhóm NFT thường do một hợp đồng hoặc dự án phát hành.
+NFT mint|Hoạt động tạo token NFT mới với token ID cụ thể.
+Token ID|Giá trị định danh token trong phạm vi hợp đồng NFT.
+NFT ownership|Trạng thái xác định tài khoản đang sở hữu NFT.
+NFT transfer|Việc chuyển quyền sở hữu NFT giữa hai tài khoản.
+NFT approval|Cho phép tài khoản khác quản lý một NFT cụ thể.
+Operator approval|Ủy quyền cho operator quản lý tất cả NFT của một chủ sở hữu.
+NFT metadata JSON|Tệp JSON chứa tên, mô tả và thuộc tính NFT.
+NFT image URI|Đường tham chiếu tới hình ảnh tài sản số.
+Fully on-chain NFT|NFT có dữ liệu hiển thị hoặc mô tả được tạo từ dữ liệu on-chain.
+Off-chain metadata|Metadata lưu trên hệ thống ngoài blockchain.
+IPFS CID|Mã định danh nội dung trên IPFS.
+Metadata pinning|Duy trì bản sao dữ liệu để nội dung IPFS luôn có thể truy xuất.
+NFT reveal|Quá trình công bố metadata sau giai đoạn mint ban đầu.
+NFT rarity|Mức độ khan hiếm tương đối của thuộc tính trong bộ NFT.
+Trait|Đặc trưng định lượng hoặc mô tả gắn với một NFT.
+Trait floor|Mức giá chào bán thấp nhất của NFT có một thuộc tính.
+Floor price|Giá niêm yết thấp nhất tại thị trường được xét.
+NFT royalty|Khoản thu được đề xuất phân phối cho tác giả theo tiêu chuẩn hoặc chợ.
+Royalty enforcement|Cơ chế quy định cách thị trường thực hiện royalty.
+NFT marketplace|Nền tảng niêm yết và trao đổi NFT.
+NFT listing|Lệnh chào bán NFT ở điều kiện nhất định.
+NFT bid|Đề nghị mua NFT ở mức giá cụ thể.
+NFT offer|Đề nghị mua một NFT hoặc tài sản trong collection.
+English auction|Đấu giá có các mức chào mua tăng dần.
+Dutch auction|Đấu giá thường bắt đầu giá cao rồi giảm theo lịch.
+Reserve price|Mức giá tối thiểu để một cuộc đấu giá hợp lệ.
+Lazy minting|Phát hành NFT tại thời điểm cần xử lý giao dịch mua hoặc chuyển.
+Free mint|Phát hành NFT không thu giá mua, có thể vẫn phát sinh phí mạng.
+Allowlist mint|Quyền mint được cấp cho nhóm địa chỉ đã phê duyệt.
+Mint pass|Tài sản hoặc quyền cho phép mint trong một đợt phát hành.
+Soulbound NFT|NFT thiết kế không cho chuyển thông thường.
+Dynamic NFT|NFT có metadata hoặc trạng thái hiển thị có thể thay đổi.
+Composable NFT|NFT có thể sở hữu hoặc liên kết với tài sản khác.
+Fractional NFT|Cơ chế chia quyền lợi kinh tế gắn với một NFT thành phần nhỏ.
+NFT lending|Hoạt động dùng NFT làm tài sản thế chấp để vay.
+NFT rental|Cho thuê quyền sử dụng NFT trong thời gian nhất định.
+NFT staking|Khóa NFT theo giao thức để nhận lợi ích hoặc phần thưởng.
+POAP|Huy hiệu kỹ thuật số ghi nhận sự hiện diện tại sự kiện.
+PFP NFT|NFT được dùng làm hình đại diện danh tính cộng đồng.
+Generative art|Nghệ thuật sinh tự động từ quy tắc lập trình hoặc thuật toán.
+Provenance hash|Giá trị băm giúp kiểm tra tính nhất quán của lịch sử metadata.
+Collection supply|Tổng lượng NFT được phát hành trong collection.
+Wash trading|Giao dịch qua lại nhằm tạo ấn tượng giả về khối lượng.
+NFT airdrop|Phân phối NFT tới địa chỉ theo điều kiện chiến dịch.
+Metadata freeze|Khóa trạng thái metadata nhằm ngăn cập nhật tiếp.
+Token-bound account|Tài khoản được liên kết với token NFT theo chuẩn tương ứng.
+ERC-6551|Đề xuất tài khoản gắn với NFT.
+NFT bridge|Cơ chế chuyển hoặc biểu diễn NFT giữa các mạng.
+NFT aggregator|Giao diện tổng hợp các nguồn niêm yết và thanh khoản NFT.
+
+## dao
+Decentralized autonomous organization|Tổ chức phối hợp hoạt động bằng quy tắc và quản trị dựa trên blockchain.
+On-chain governance|Quản trị ghi phiếu và thực thi theo quy trình trên blockchain.
+Off-chain governance|Quản trị thảo luận hoặc bỏ phiếu ngoài chuỗi.
+Governance proposal|Đề xuất về thông số, chi tiêu hoặc nâng cấp giao thức.
+Proposal threshold|Ngưỡng cần có để một người được quyền đưa đề xuất.
+Governance vote|Hành động bầu chọn phương án quản trị trong giai đoạn hợp lệ.
+Voting power|Trọng số phiếu của người tham gia theo quy tắc giao thức.
+Token-weighted voting|Mô hình sức nặng phiếu tương quan lượng token đủ điều kiện.
+Quadratic voting|Mô hình chi phí phiếu tăng theo bình phương số phiếu.
+Conviction voting|Cơ chế trọng số phiếu tăng theo thời gian duy trì lựa chọn.
+Delegated voting|Trao quyền bỏ phiếu cho chủ thể đại diện.
+Voting delegation|Hành vi chuyển quyền biểu quyết mà không chuyển quyền sở hữu token.
+Governance quorum|Ngưỡng phiếu tối thiểu để quyết định đủ điều kiện.
+Voting delay|Khoảng chờ giữa lúc đề xuất được mở và bắt đầu bỏ phiếu.
+Voting period|Thời gian người tham gia có thể bỏ phiếu.
+Execution timelock|Khoảng đệm bắt buộc trước khi đề xuất đã duyệt có hiệu lực.
+Governance executor|Hợp đồng hoặc tác nhân thực thi quyết định đã phê duyệt.
+DAO treasury|Quỹ tài sản thuộc quyền quản trị của tổ chức.
+Treasury diversification|Phân tán dự trữ tài sản nhằm giảm phụ thuộc một nguồn.
+Multisig treasury|Quỹ được kiểm soát qua ngưỡng nhiều chữ ký.
+Governance guardian|Vai trò bảo vệ với quyền hạn riêng trong khẩn cấp.
+Emergency pause|Khả năng tạm dừng một số thao tác theo quyền quy định.
+Veto power|Quyền ngăn quyết định trong phạm vi được giao.
+Constitutional governance|Quản trị theo văn kiện quy tắc cấp cao của cộng đồng.
+Parameter governance|Bỏ phiếu điều chỉnh thông số của giao thức.
+Protocol upgrade vote|Quyết định thông qua việc nâng cấp mã hoặc cơ chế.
+Grant proposal|Đề xuất cấp nguồn kinh phí cho một nhóm công việc.
+Retroactive funding|Phân phối tài trợ sau khi đóng góp đã được ghi nhận.
+Public goods funding|Phân bổ nguồn lực cho hạ tầng đem lợi ích cộng đồng.
+Quadratic funding|Phân bổ quỹ theo cơ chế làm tăng trọng số nhiều người đóng góp.
+Delegate platform|Nền tảng quản lý đại biểu và quyền biểu quyết.
+Governance forum|Không gian thảo luận mở trước hoặc sau biểu quyết.
+Snapshot voting|Hệ thống bỏ phiếu dùng snapshot quyền biểu quyết ở mốc xác định.
+Proposal lifecycle|Vòng đời đề xuất từ chuẩn bị đến bỏ phiếu và thực thi.
+On-chain referendum|Cuộc trưng cầu ý kiến thực thi trực tiếp bằng giao thức.
+Vote escrow|Khóa token trong kỳ hạn để nhận quyền biểu quyết tương ứng.
+veToken model|Thiết kế quyền quản trị dựa trên token khóa có thời hạn.
+Ragequit mechanism|Quyền rời tổ chức và nhận phần tài sản theo điều kiện.
+Treasury stream|Phương thức thanh toán tài trợ theo dòng thời gian.
+DAO contributor|Thành viên đóng góp công việc cho hoạt động DAO.
+DAO working group|Nhóm phụ trách lĩnh vực công việc trong tổ chức.
+DAO multisig signer|Chủ thể nắm một phần quyền ký chi tiêu từ quỹ.
+Governance capture|Rủi ro quyền biểu quyết bị tập trung vào nhóm nhỏ.
+Low-voter turnout|Tình trạng tỷ lệ người tham gia biểu quyết thấp.
+Vote buying|Trao lợi ích nhằm tác động phiếu bầu theo ý muốn.
+Proposal spam|Tạo lượng đề xuất lớn làm giảm hiệu quả thẩm định.
+Timelock controller|Hợp đồng quản lý hàng đợi và thời gian thực thi hành động.
+Governor contract|Hợp đồng triển khai quy tắc đưa đề xuất và biểu quyết.
+Governance attack|Khai thác quyền quyết định để thay đổi hệ thống theo hướng độc hại.
+Governance delegation checkpoint|Mốc ghi nhận quyền biểu quyết đã ủy quyền cho đại diện.
+
+## l2
+Layer 2|Hệ thống xử lý hoạt động ngoài L1 nhưng dựa vào một số bảo đảm của L1.
+Layer 1|Blockchain nền cung cấp cơ chế đồng thuận và trạng thái gốc.
+Layer 3|Lớp ứng dụng hoặc mở rộng nằm trên tầng mở rộng khác.
+Rollup|Hệ thống thực thi ngoài L1 và đăng dữ liệu hoặc bằng chứng về L1.
+Optimistic rollup|Rollup giả định kết quả hợp lệ và cung cấp cơ chế thách thức.
+ZK rollup|Rollup dùng bằng chứng hợp lệ để xác nhận chuyển trạng thái.
+Validity rollup|Rollup kiểm chứng sự đúng đắn bằng proof được xác thực.
+Fraud proof|Bằng chứng cho thấy một chuyển trạng thái không hợp lệ.
+Fault proof|Bằng chứng phản biện kết quả thực thi của hệ thống optimistic.
+Validity proof|Bằng chứng toán học cho tính hợp lệ của chuyển trạng thái.
+Challenge period|Khoảng thời gian cho phép phản đối kết quả chưa chốt.
+Sequencer|Tác nhân nhận và sắp xếp giao dịch ở hệ thống rollup.
+Sequencer censorship|Tình huống sequencer trì hoãn hoặc từ chối một số giao dịch.
+Forced inclusion|Cơ chế cưỡng chế đưa giao dịch qua đường L1 khi cần.
+Proposer|Tác nhân đề xuất dữ liệu trạng thái hoặc block theo quy tắc hệ thống.
+Prover|Thành phần tính toán bằng chứng hợp lệ của trạng thái.
+Verifier contract|Hợp đồng kiểm tra proof đã được cung cấp.
+Execution layer|Lớp vận hành lệnh và tính toán trạng thái giao dịch.
+Settlement layer|Lớp chốt nghĩa vụ và kết quả được đồng ý.
+Data availability layer|Hạ tầng công bố và bảo đảm khả năng lấy dữ liệu.
+Data availability sampling|Kỹ thuật kiểm tra khả năng dữ liệu hiện diện bằng lấy mẫu.
+Danksharding|Định hướng mở rộng khả năng cung cấp dữ liệu cho rollup.
+Proto-danksharding|Giai đoạn mở rộng bằng blob theo EIP-4844.
+Blob transaction|Giao dịch mang cam kết dữ liệu blob phục vụ đăng dữ liệu.
+Blobscription|Nội dung được nhúng vào không gian dữ liệu blob của Ethereum.
+Calldata posting|Cách đăng dữ liệu giao dịch rollup vào calldata L1.
+Batch submission|Đăng nhiều giao dịch L2 thành một lô để xử lý L1.
+State commitment|Cam kết băm đại diện trạng thái tại một mốc.
+Output root|Giá trị cam kết kết quả trạng thái của rollup.
+State transition proof|Bằng chứng rằng cập nhật trạng thái tuân theo quy tắc.
+Rollup bridge|Cơ chế chuyển tài sản hoặc thông điệp giữa rollup và L1.
+Withdrawal delay|Khoảng chờ cần thiết trước khi rút qua cầu chính thức.
+Canonical rollup bridge|Cầu do giao thức rollup chính thức định nghĩa.
+Shared sequencer|Cơ chế nhiều rollup dùng cùng lớp sắp thứ tự.
+Decentralized sequencer|Mô hình phân tán quyền sắp thứ tự giao dịch rollup.
+Based rollup|Rollup dựa vào proposer hoặc thứ tự do L1 xác định.
+Sovereign rollup|Rollup tự xác định quy tắc xác minh và nâng cấp.
+Validium|Hệ thống dùng validity proof nhưng giữ dữ liệu ngoài chuỗi.
+Volition|Mô hình cho phép chọn chế độ lưu dữ liệu theo trạng thái.
+Optimium|Biến thể optimistic với phương án dữ liệu không nằm hoàn toàn trên L1.
+State channel|Giao thức nhiều lượt tương tác ngoài chain với chốt cuối on-chain.
+Payment channel|Kênh trao đổi thanh toán ngoài chain giữa các bên.
+Plasma chain|Họ thiết kế mở rộng dùng cây giao dịch và cơ chế rút.
+Sidechain|Blockchain riêng có cơ chế an ninh độc lập và cầu kết nối.
+Appchain|Chuỗi được tối ưu chủ yếu cho một ứng dụng hoặc nhóm chức năng.
+OP Stack|Bộ cấu phần mã nguồn mở xây dựng các chain theo OP.
+Superchain|Mô hình liên kết các chain trong hệ sinh thái OP Stack.
+Arbitrum Nitro|Ngăn xếp kỹ thuật thực thi rollup Arbitrum.
+zkEVM|Hệ thống tạo proof cho thực thi tương thích máy ảo Ethereum.
+Rollup-as-a-Service|Dịch vụ cung cấp hạ tầng khởi tạo và vận hành rollup.
+
+## brg
+Cross-chain bridge|Hạ tầng truyền tài sản hoặc thông điệp qua các blockchain.
+Canonical bridge|Cầu được hệ thống nguồn hoặc đích công nhận chính thức.
+Lock-and-mint bridge|Cơ chế khóa tài sản một mạng và đúc đại diện ở mạng khác.
+Burn-and-release bridge|Đốt đại diện để mở khóa tài sản đã khóa ở nguồn.
+Burn-and-mint bridge|Đốt tài sản ở nguồn và đúc tài sản ở đích theo thỏa thuận.
+Liquidity bridge|Cầu dựa trên pool thanh khoản để chuyển tài sản giữa chain.
+Wrapped asset|Token biểu diễn quyền lợi tương ứng tài sản từ nơi khác.
+Bridged token|Tài sản được tạo hoặc biểu diễn qua một cơ chế cầu nối.
+Cross-chain message|Thông điệp chứa dữ liệu chuyển từ chain nguồn sang chain đích.
+Message relayer|Tác nhân truyền dữ liệu hoặc bằng chứng giữa hai môi trường.
+Message verifier|Thành phần kiểm tra tính hợp lệ của thông điệp đến.
+Light-client bridge|Cầu có cơ chế xác minh header hoặc bằng chứng nguồn.
+Multisig bridge|Cầu dựa vào nhóm khóa ngưỡng để duyệt chuyển tài sản.
+Optimistic bridge|Cầu chờ thời hạn challenge trước khi công nhận thông điệp.
+Validator bridge|Cầu dựa vào nhóm validator chuyên xác thực thông điệp.
+Bridge finality|Điều kiện chốt đủ an toàn để cầu chấp nhận sự kiện nguồn.
+Message replay protection|Cơ chế chống thực thi lại cùng một thông điệp cầu nối.
+Cross-chain nonce|Giá trị đánh số thông điệp để bảo đảm duy nhất hoặc thứ tự.
+Bridge fee|Phí thanh toán cho việc xác minh, chuyển hoặc cung cấp thanh khoản.
+Bridge latency|Độ trễ giữa thao tác nguồn và kết quả được chấp nhận ở đích.
+Bridge liquidity|Lượng tài sản có sẵn để phục vụ chuyển chéo chain.
+Bridge rate limit|Giới hạn tốc độ hoặc lượng tiền rút qua cầu nhằm giảm rủi ro.
+Bridge pause|Cơ chế tạm dừng thao tác trên cầu khi có sự cố.
+Bridge guardian|Vai trò được giao quyền kiểm soát khẩn cấp của cầu.
+Bridge exploit|Sự cố khai thác lỗ hổng kiểm chứng hoặc quản lý tài sản cầu.
+Interoperability|Khả năng các hệ thống blockchain trao đổi dữ liệu hoặc tài sản.
+Atomic swap|Giao thức hoán đổi có điều kiện đảm bảo cả hai bên cùng hoàn tất.
+HTLC|Hợp đồng khóa tài sản dùng hash và thời hạn.
+Hashlock|Điều kiện mở khóa khi đưa ra tiền ảnh hash chính xác.
+Timelock|Điều kiện chỉ cho phép hành động sau mốc thời gian hoặc block.
+IBC|Giao thức truyền gói và chứng minh trạng thái giữa các chain tương thích.
+IBC channel|Kênh logic IBC dùng gửi packet giữa các module.
+IBC packet|Gói dữ liệu liên chuỗi được ràng buộc với đường và số thứ tự.
+IBC relayer|Tác nhân vận chuyển packet và bằng chứng IBC giữa các chain.
+IBC light client|Module lưu và kiểm chứng trạng thái đồng thuận của chuỗi khác.
+Cross-chain account|Cơ chế điều khiển tài khoản ở chain khác qua thông điệp.
+General message passing|Giao thức vận chuyển thông điệp không giới hạn ở chuyển token.
+Cross-chain governance|Quản trị dựa vào phiếu hoặc kết quả ở nhiều mạng.
+Omnichain application|Ứng dụng có trạng thái hoặc chức năng trải trên nhiều chain.
+Bridge adapter|Module chuyển đổi định dạng giao tiếp với hệ thống cầu.
+Bridge router|Thành phần lựa chọn tuyến hoặc cầu cho yêu cầu chuyển.
+Hop bridge|Cơ chế chuyển tài sản qua chuỗi trung gian hoặc pool.
+LayerZero messaging|Hạ tầng truyền thông điệp tương tác giữa các mạng.
+Wormhole messaging|Mô hình truyền thông điệp dựa vào xác nhận từ guardian.
+Axelar network|Mạng kết nối nhiều chain và chuyển thông điệp liên chuỗi.
+Chain abstraction|Trải nghiệm che bớt ranh giới chain khỏi người dùng.
+Intent-based bridging|Đề xuất kết quả chuyển chain cho solver thực hiện.
+Bridge slippage|Sai lệch nhận được do tỷ lệ và thanh khoản ở tuyến cầu.
+Cross-chain settlement|Quá trình hoàn tất nghĩa vụ chuyển giá trị qua các mạng.
+Interchain security|Họ cơ chế chia sẻ một phần bảo đảm an ninh giữa chain.
+
+## sec
+Smart contract audit|Quy trình rà soát thiết kế và mã hợp đồng nhằm phát hiện rủi ro.
+Static analysis|Phân tích mã mà không cần chạy chương trình.
+Dynamic analysis|Kiểm tra hành vi của chương trình bằng thực thi.
+Fuzz testing|Cấp nhiều đầu vào tự động để phát hiện lỗi bất thường.
+Property-based testing|Kiểm tra các bất biến đúng với nhiều trạng thái đầu vào.
+Invariant|Mệnh đề phải luôn đúng qua các chuyển trạng thái hợp lệ.
+Formal verification|Dùng mô hình toán học để chứng minh thuộc tính chương trình.
+Symbolic execution|Khám phá đường chạy bằng các giá trị đầu vào ký hiệu.
+Differential testing|So sánh kết quả nhiều triển khai để phát hiện sai lệch.
+Reentrancy vulnerability|Lỗi cho phép gọi quay lại làm phá vỡ bất biến trạng thái.
+Read-only reentrancy|Gọi lồng ảnh hưởng kết quả đọc trong trạng thái tạm thời.
+Integer overflow|Lỗi số vượt miền biểu diễn của kiểu dữ liệu.
+Integer underflow|Lỗi số nhỏ hơn ngưỡng biểu diễn của kiểu dữ liệu.
+Unchecked arithmetic|Phép toán không áp dụng cơ chế kiểm tra tràn số tự động.
+Access control bug|Lỗi quyền khiến người không đủ thẩm quyền thực hiện thao tác.
+Privilege escalation|Chiếm quyền mạnh hơn mức được hệ thống cho phép.
+Storage collision|Xung đột bố trí storage khiến logic đọc ghi nhầm biến.
+Uninitialized proxy|Proxy chưa khởi tạo đầy đủ có thể lộ quyền hoặc sai trạng thái.
+Delegatecall injection|Gọi code không tin cậy trong ngữ cảnh storage của hợp đồng.
+tx.origin authentication|Cách xác thực dựa vào tx.origin có thể bị lạm dụng.
+Signature replay|Dùng lại chữ ký trong ngữ cảnh khác khi thiếu miền ràng buộc.
+Signature malleability|Khả năng biến đổi chữ ký thành dạng khác vẫn được chấp nhận.
+Permit phishing|Lừa người dùng ký quyền chi tiêu token ngoài mong muốn.
+Wallet drainer|Công cụ độc hại dẫn dụ cấp quyền hoặc ký để chiếm tài sản.
+Address poisoning|Gieo lịch sử địa chỉ tương tự để người dùng sao chép nhầm.
+Dusting attack|Gửi lượng token rất nhỏ nhằm phân tích hoặc gây nhầm lẫn.
+Oracle manipulation|Làm sai lệch dữ liệu mà ứng dụng nhận từ nguồn oracle.
+Flash-loan attack|Tấn công tận dụng thanh khoản vay trong một giao dịch.
+Sandwich bot|Tác nhân tự động thực hiện chiến thuật sandwich vào lệnh khác.
+Front-running|Đưa giao dịch trước một giao dịch khác để chiếm lợi thế.
+Back-running|Đặt giao dịch ngay sau sự kiện hoặc lệnh để khai thác kết quả.
+Denial of service|Làm dịch vụ hoặc hợp đồng không thể xử lý yêu cầu hợp lệ.
+Gas griefing|Khiến đối tác chịu chi phí hoặc rủi ro do điều kiện gas.
+Governance takeover|Chiếm quyền biểu quyết đủ mức để định hướng quyết định.
+Flash governance attack|Tận dụng quyền quản trị vay tạm hoặc ràng buộc yếu.
+Sybil attack|Tạo nhiều danh tính giả để bóp méo cơ chế ra quyết định.
+Eclipse attack|Cô lập mạng nhìn thấy của một node bằng nhóm peer đối địch.
+51-percent attack|Kiểm soát đa số tài nguyên đồng thuận thích hợp để gây đảo lịch sử.
+Selfish mining attack|Che giấu block nhằm tạo lợi thế trong lựa chọn nhánh PoW.
+Time-bandit attack|Tổ chức lại lịch sử gần đây để chiếm lợi ích MEV.
+Rug pull|Nhóm vận hành rút thanh khoản hoặc bỏ dự án gây thiệt hại.
+Honeypot token|Token cho phép tương tác mua nhưng hạn chế bán bất thường.
+Phishing website|Website giả mạo để thu khóa hoặc dụ chữ ký không an toàn.
+Malicious approval|Quyền chi tiêu token được cấp quá rộng cho spender độc hại.
+Bug bounty|Chương trình thưởng cho người báo cáo lỗ hổng hợp lệ.
+Circuit breaker|Logic tạm dừng hoạt động khi điều kiện rủi ro kích hoạt.
+Rate limiting|Giới hạn tần suất hoặc quy mô hành động trong một cửa sổ.
+Timelocked upgrade|Nâng cấp bị trì hoãn để cộng đồng có thời gian kiểm tra.
+Incident response|Quy trình phát hiện, khoanh vùng và khắc phục sự cố.
+Threat model|Mô hình xác định tài sản cần bảo vệ và năng lực đối thủ.
+
+## nod
+Blockchain node|Máy tham gia lưu, xác minh hoặc truyền dữ liệu blockchain.
+Full node|Node kiểm tra quy tắc chain và lưu dữ liệu cần thiết để đồng bộ.
+Archive node|Node giữ thêm trạng thái lịch sử cho các truy vấn sâu.
+Pruned node|Node lược bỏ dữ liệu lịch sử không cần thiết sau đồng bộ.
+Light client|Client xác minh thông tin cần thiết mà không tải toàn bộ dữ liệu.
+Execution client|Phần mềm xử lý giao dịch và trạng thái tầng thực thi Ethereum.
+Consensus client|Phần mềm thực hiện quy tắc đồng thuận Ethereum PoS.
+Validator client|Phần mềm quản lý nhiệm vụ ký hoặc bỏ phiếu của validator.
+RPC node|Node cung cấp giao diện gọi hàm để truy vấn hoặc gửi giao dịch.
+JSON-RPC|Giao thức yêu cầu phản hồi dưới dạng cấu trúc JSON.
+WebSocket subscription|Cơ chế nhận thông báo đẩy khi có sự kiện mới từ node.
+HTTP RPC endpoint|Địa chỉ HTTP nhận các lời gọi API blockchain.
+RPC rate limit|Ngưỡng số yêu cầu API được phép theo thời gian.
+RPC load balancer|Bộ phân phối yêu cầu giữa nhiều máy phục vụ RPC.
+Public RPC|Điểm API mở cho người dùng mà không yêu cầu vận hành node riêng.
+Private RPC|Điểm API giới hạn cho một tổ chức hoặc khách hàng.
+Local node|Node được vận hành trên hạ tầng do người dùng kiểm soát.
+Bootnode|Nút hỗ trợ tìm peer ban đầu khi tham gia mạng.
+Peer discovery|Cơ chế tìm nút ngang hàng có thể kết nối.
+Peer handshake|Bước trao đổi thông tin để thiết lập phiên ngang hàng.
+Peer scoring|Hệ điểm đánh giá hành vi các kết nối mạng khác.
+Gossip network|Phương thức lan truyền thông tin thông qua các peer.
+Devp2p|Họ giao thức mạng ngang hàng của Ethereum.
+Libp2p|Bộ thư viện xây dựng mạng kết nối ngang hàng.
+Discovery v5|Giao thức khám phá peer dựa trên mạng phân tán.
+Ethereum Node Record|Cấu trúc công bố thông tin liên lạc và danh tính node.
+Snap sync|Cơ chế đồng bộ Ethereum dựa vào ảnh trạng thái hiện có.
+Checkpoint sync|Cách bắt đầu đồng bộ PoS từ một mốc đã biết.
+Header sync|Quá trình tải và kiểm tra thông tin header.
+State sync|Quá trình nhận trạng thái gần hiện tại thay vì replay toàn bộ.
+Archive query|Truy vấn trạng thái tại một block lịch sử rất cũ.
+eth_call|Lệnh RPC thực thi mô phỏng lời gọi mà không ghi trạng thái.
+eth_getLogs|Lệnh RPC lọc và lấy event logs trong phạm vi block.
+eth_getBalance|Lệnh RPC lấy số dư ETH của một địa chỉ ở mốc xác định.
+eth_sendRawTransaction|Lệnh RPC phát tán giao dịch Ethereum đã được ký.
+eth_getTransactionReceipt|Lệnh RPC lấy biên lai của giao dịch sau khi được ghi.
+eth_blockNumber|Lệnh RPC trả về số block mới nhất node biết.
+Debug trace|Dữ liệu phân tích chi tiết việc thực thi của một giao dịch.
+Trace API|Tập giao diện phục vụ khám phá các lời gọi nội bộ.
+Geth client|Một phần mềm execution client Ethereum viết bằng Go.
+Nethermind client|Execution client Ethereum chủ yếu viết bằng C#.
+Besu client|Execution client Ethereum viết bằng Java.
+Erigon client|Execution client tối ưu dữ liệu và vận hành cho Ethereum.
+Reth client|Execution client Ethereum viết bằng Rust.
+Lighthouse client|Consensus client Ethereum triển khai bằng Rust.
+Prysm client|Consensus client Ethereum triển khai bằng Go.
+Teku client|Consensus client Ethereum triển khai bằng Java.
+Nimbus client|Consensus client Ethereum tập trung vào hiệu suất tài nguyên.
+Lodestar client|Consensus client Ethereum triển khai bằng TypeScript.
+Client diversity|Phân phối hệ node qua nhiều phần mềm để giảm rủi ro chung.
+
+## min
+Bitcoin mining|Hoạt động tìm block PoW hợp lệ thông qua thử giá trị băm.
+Miner|Tác nhân triển khai phần cứng để khai thác block Proof of Work.
+Hashrate|Số phép băm được thực hiện trong một giây.
+Network hashrate|Tổng sức mạnh băm ước tính của mạng khai thác.
+Mining difficulty|Thước đo độ khó đáp ứng mục tiêu băm của block.
+Difficulty adjustment|Quy trình điều chỉnh ngưỡng PoW để hướng tới nhịp block.
+Target threshold|Giới hạn đầu ra băm để block thỏa điều kiện.
+Mining nonce|Giá trị thử nghiệm trong header để tìm băm hợp lệ.
+Extranonce|Trường thay đổi bổ sung trong dữ liệu coinbase của miner.
+Coinbase transaction|Giao dịch đầu block Bitcoin tạo trợ cấp và thu phí.
+Block subsidy|Phần coin mới được phát hành cho block theo lịch giao thức.
+Transaction fee reward|Phần phí giao dịch người khai thác được nhận khi tạo block.
+Bitcoin halving|Sự kiện giảm một nửa trợ cấp block sau số block quy định.
+Mining pool|Nhóm miner phối hợp băm và chia thu nhập theo cơ chế chung.
+Pool operator|Tác nhân điều hành pool và phân phối nhiệm vụ khai thác.
+Stratum protocol|Giao thức giao công việc và trả kết quả giữa pool và miner.
+Stratum V2|Giao thức khai thác cải tiến hỗ trợ nhiều tính năng bổ sung.
+Share difficulty|Mức khó của nhiệm vụ pool dùng ghi nhận công sức miner.
+Mining share|Kết quả băm đáp ứng ngưỡng pool nhưng chưa chắc đủ ngưỡng mạng.
+Rejected share|Kết quả pool không nhận vì lỗi, trễ hoặc quy tắc.
+Stale share|Kết quả băm gửi sau khi pool đã chuyển công việc.
+Pay-per-share|Cơ chế pool trả theo từng share hợp lệ.
+Pay-per-last-N-shares|Cơ chế chia thưởng theo tập share gần nhất.
+Full-pay-per-share|Cơ chế thưởng chia tính cả phần phí theo quy ước pool.
+Pool fee|Tỷ lệ hoặc số phí pool thu từ doanh thu khai thác.
+ASIC miner|Phần cứng tích hợp chuyên thực hiện thuật toán đào xác định.
+GPU miner|Thiết bị dùng bộ xử lý đồ họa cho thuật toán PoW phù hợp.
+CPU miner|Thiết bị dùng bộ xử lý trung tâm để khai thác.
+Mining firmware|Phần mềm điều khiển phần cứng ASIC hoặc thiết bị đào.
+Mining rig|Bộ phần cứng được ghép để thực hiện khai thác.
+Power efficiency|Mức điện năng tiêu thụ tương ứng công suất băm.
+Joules per terahash|Đơn vị hiệu suất năng lượng dùng cho máy đào Bitcoin.
+Mining profitability|Lợi nhuận ước tính sau giá điện, phí và phần thưởng.
+Mining revenue|Giá trị trợ cấp và phí dự kiến thu từ khai thác.
+Electricity cost|Chi phí năng lượng cần chi trả khi vận hành máy đào.
+Mining pool payout|Khoản pool phân phối cho thành viên tham gia.
+Merge mining|Kỹ thuật dùng chung công việc PoW cho nhiều mạng tương thích.
+Auxiliary Proof of Work|Thiết kế chain phụ xác minh công việc PoW từ chain khác.
+Selfish mining|Chiến thuật giấu block làm lệch động lực khai thác trung thực.
+Orphan rate|Tỷ lệ block không được đưa vào chuỗi chuẩn trong thời kỳ xét.
+Propagation delay|Thời gian cần để block hoặc công việc đến các nút khác.
+Mining centralization|Xu hướng phần lớn công suất đào tập trung vào ít chủ thể.
+Solo mining|Thợ đào độc lập không chia phần thưởng với pool.
+Pool mining|Đào thông qua pool để nhận phần thưởng theo đóng góp.
+Mining payout address|Địa chỉ nhận tiền mà pool hoặc coinbase sẽ thanh toán.
+Coinbase maturity|Số block phải chờ trước khi tiêu đầu ra coinbase Bitcoin.
+Difficulty retarget|Thao tác tính ngưỡng mới khi tới chu kỳ điều chỉnh.
+Mining reward schedule|Quy tắc xác định phần thưởng block theo chiều dài lịch sử.
+Orphan risk|Nguy cơ block được đào nhưng mất vị trí trên lịch sử chính.
+Miner extractable value|Khái niệm lợi ích từ quyền lựa chọn và thứ tự giao dịch.
+
+## sto
+Decentralized storage|Lưu dữ liệu qua nhiều nhà cung cấp mà không phụ thuộc một máy.
+IPFS|Giao thức nội dung định địa chỉ và phân phối dữ liệu ngang hàng.
+Content identifier|Mã định danh dựa trên nội dung trong mạng như IPFS.
+Content addressing|Phương pháp truy xuất dữ liệu dựa trên băm nội dung thay vì vị trí.
+IPFS pinning|Giữ nội dung trên node để không bị dọn khỏi cache.
+IPFS gateway|Điểm dịch vụ HTTP cho phép truy cập nội dung IPFS.
+IPFS provider record|Thông tin DHT chỉ ra node có thể cung cấp một nội dung.
+IPFS DHT|Bảng băm phân tán dùng tìm nội dung hoặc peer.
+UnixFS|Cách tổ chức tệp và thư mục trên IPFS.
+CAR file|Định dạng kho dữ liệu gồm các block nội dung có địa chỉ.
+Filecoin|Mạng cung cấp thị trường lưu dữ liệu và bằng chứng lưu trữ.
+Storage provider|Nhà cung cấp dung lượng lưu trữ trong hệ thống phân tán.
+Storage deal|Thỏa thuận lưu dữ liệu theo thời hạn và điều kiện.
+Proof of Replication|Bằng chứng mật mã xác nhận dữ liệu có bản sao lưu trữ riêng.
+Proof of Spacetime|Bằng chứng chứng minh dữ liệu được lưu qua một khoảng thời gian.
+Retrieval market|Cơ chế thị trường cho dịch vụ truy xuất dữ liệu.
+Filecoin sector|Đơn vị dung lượng đã được niêm phong và chứng minh.
+Erasure coding|Mã hóa phân mảnh giúp phục hồi khi mất một số phần.
+Replication factor|Số bản sao dữ liệu được duy trì trong hệ thống.
+Data redundancy|Lượng dữ liệu dự phòng làm tăng khả năng chịu lỗi.
+Arweave|Mạng lưu trữ có mô hình kinh tế hướng tới duy trì lâu dài.
+Permaweb|Lớp ứng dụng và dữ liệu xây trên mạng lưu trữ Arweave.
+Storj|Hạ tầng lưu trữ đối tượng phân tán.
+Swarm|Hệ thống lưu trữ phân tán gắn với hệ sinh thái Ethereum.
+Pinning service|Dịch vụ duy trì nội dung trên IPFS thay mặt người dùng.
+Filecoin retrieval|Hoạt động cung cấp dữ liệu được lưu từ mạng Filecoin.
+Blob storage|Không gian mang dữ liệu blob trong chu trình công bố blockchain.
+EIP-4844 blob|Dữ liệu giao dịch có thời hạn khả dụng giới hạn trên Ethereum.
+State database|Cơ sở dữ liệu cục bộ của client cho trạng thái hiện tại.
+LevelDB|Thư viện lưu trữ key-value dùng ở nhiều hệ thống node.
+RocksDB|Bộ máy cơ sở dữ liệu key-value tối ưu cho ổ đĩa.
+Merkle database|Kho dữ liệu gắn với cam kết băm của cấu trúc Merkle.
+State trie|Cây lưu dữ liệu tài khoản hoặc storage của blockchain.
+Trie node|Nút trong cấu trúc cây tiền tố và băm trạng thái.
+State pruning|Dọn dữ liệu trạng thái lịch sử không cần thiết cho vận hành hiện tại.
+Archive state|Dữ liệu trạng thái lịch sử được giữ lại để truy vấn.
+Snapshot sync|Đồng bộ dữ liệu gần hiện tại bằng ảnh trạng thái.
+State proof|Bằng chứng xác minh một giá trị nằm trong cam kết trạng thái.
+Storage proof|Bằng chứng một giá trị slot thuộc trạng thái của tài khoản.
+Event indexing|Quá trình xây chỉ mục từ logs để ứng dụng tra cứu.
+The Graph subgraph|Định nghĩa cách lập chỉ mục sự kiện và thực thể cho truy vấn.
+GraphQL API|Giao diện truy vấn cấu trúc dữ liệu cho ứng dụng web3.
+Blockchain indexer|Dịch vụ đọc chain và tổ chức dữ liệu thành chỉ mục.
+ETL pipeline|Quy trình trích xuất, chuyển đổi và nạp dữ liệu blockchain.
+On-chain data|Dữ liệu được đưa trực tiếp vào trạng thái hoặc lịch sử chain.
+Off-chain data|Dữ liệu được lưu và quản lý bên ngoài trạng thái blockchain.
+Data availability|Khả năng các bên lấy dữ liệu cần thiết để tái lập trạng thái.
+Data withholding|Hành vi không cung cấp dữ liệu khiến bên khác khó xác minh.
+Data integrity|Khả năng phát hiện dữ liệu bị sửa đổi trái mong muốn.
+Content pinning policy|Quy tắc lựa chọn dữ liệu cần được duy trì khả dụng.
+
+## std
+EIP|Ethereum Improvement Proposal: quy trình đặc tả cải tiến Ethereum.
+ERC|Danh mục đề xuất chuẩn giao diện ứng dụng trong hệ sinh thái Ethereum.
+BIP|Bitcoin Improvement Proposal: đề xuất kỹ thuật và quy trình Bitcoin.
+SIP|Đề xuất cải tiến hệ thống theo chuẩn đặt tên của từng dự án.
+EIP-155|Cơ chế ký giao dịch có chain ID chống phát lại qua mạng.
+EIP-2718|Định dạng phong bì giao dịch hỗ trợ nhiều kiểu payload.
+EIP-2930|Định dạng giao dịch có danh sách truy cập storage.
+EIP-1559|Đề xuất thay đổi mô hình tính và phân bổ phí Ethereum.
+EIP-4844|Đề xuất đưa giao dịch dữ liệu blob vào Ethereum.
+EIP-1153|Đề xuất opcode truy cập transient storage trong EVM.
+EIP-5656|Đề xuất opcode MCOPY sao chép vùng nhớ hiệu quả.
+EIP-6780|Đề xuất thu hẹp hành vi xóa contract của SELFDESTRUCT.
+EIP-1167|Chuẩn bytecode minimal proxy để tạo clone hợp đồng.
+EIP-2535|Chuẩn kiến trúc proxy đa facet còn gọi diamond.
+EIP-712|Chuẩn ký dữ liệu có cấu trúc và miền ứng dụng.
+EIP-191|Chuẩn mã hóa dữ liệu đã ký dạng thông điệp Ethereum.
+EIP-4361|Tiêu chuẩn Sign-In with Ethereum cho xác thực đăng nhập.
+EIP-1271|Tiêu chuẩn xác minh chữ ký do smart contract tạo hoặc chấp nhận.
+EIP-2612|Tiêu chuẩn permit cho ERC-20 qua chữ ký.
+EIP-4337|Đề xuất account abstraction không yêu cầu thay đổi đồng thuận.
+EIP-1967|Quy ước slot cho implementation, admin và beacon proxy.
+EIP-1822|Đề xuất kiểu universal upgradeable proxy.
+EIP-165|Đề xuất kiểm tra hỗ trợ interface của hợp đồng.
+EIP-2981|Chuẩn giao diện tra cứu tiền bản quyền NFT.
+EIP-4626|Chuẩn giao diện tokenized vault.
+EIP-721|Chuẩn định nghĩa interface NFT không thay thế được.
+EIP-1155|Chuẩn đa token trong một hợp đồng.
+EIP-20|Đề xuất hình thành chuẩn ERC-20 token.
+BIP-141|Đề xuất Segregated Witness cho giao dịch Bitcoin.
+BIP-143|Quy tắc hàm băm chữ ký mới cho SegWit v0.
+BIP-173|Chuẩn địa chỉ Bech32 cho giao dịch SegWit.
+BIP-350|Chuẩn Bech32m cho một số phiên bản witness.
+BIP-340 Schnorr|Đặc tả chữ ký Schnorr trên secp256k1 cho Taproot.
+BIP-341 Taproot|Đặc tả đầu ra Taproot và điều kiện chi tiêu Bitcoin.
+BIP-342 Tapscript|Ngôn ngữ script phiên bản dùng cùng Taproot.
+BIP-125|Quy ước tín hiệu Replace-by-Fee của giao dịch Bitcoin.
+BIP-174|Định dạng Partially Signed Bitcoin Transaction.
+BIP-370|Đề xuất định dạng PSBT phiên bản 2.
+BIP-21|Chuẩn URI yêu cầu thanh toán Bitcoin.
+CAIP-2|Quy ước định danh chuỗi theo cấu trúc chain namespace.
+CAIP-10|Quy ước biểu diễn tài khoản xuyên các blockchain.
+CAIP-19|Quy ước định danh tài sản trên nhiều chain.
+DID|Decentralized Identifier: định danh có thể xác minh độc lập.
+W3C Verifiable Credentials|Mô hình thông tin xác thực được ký và kiểm chứng.
+ENS|Hệ thống đặt tên cho địa chỉ và tài nguyên Ethereum.
+ENS namehash|Thuật toán băm phân cấp tên miền ENS.
+DNSSEC|Bộ mở rộng DNS giúp kiểm chứng dữ liệu tên miền qua chữ ký.
+OpenZeppelin Contracts|Thư viện triển khai hợp đồng và tiện ích bảo mật thường dùng.
+Solidity NatSpec|Quy ước chú thích tài liệu chuẩn của Solidity.
+Semantic versioning|Quy ước phiên bản theo mức tương thích API.
+
+## sol
+Solana|Blockchain dùng các khái niệm account, program, instruction và transaction.
+Solana account|Bản ghi trạng thái có địa chỉ, lamports, dữ liệu và owner.
+Solana program|Mã thực thi xử lý instruction, tách khỏi các data account.
+Solana instruction|Yêu cầu gọi một program với tập account và dữ liệu.
+Solana transaction|Nhóm instruction nguyên tử cùng chữ ký và message.
+Solana slot|Vị trí thời gian logic trong quá trình sản xuất block.
+Solana epoch|Giai đoạn gồm nhiều slot dùng tổ chức stake và nhiệm vụ.
+Recent blockhash|Mã băm gần đây ràng buộc thời hạn và chống phát lại giao dịch.
+Last valid block height|Độ cao block giới hạn hiệu lực giao dịch kiểu blockhash.
+Solana lamport|Đơn vị nhỏ nhất của SOL, bằng một phần tỷ SOL.
+Rent exemption|Điều kiện số dư tối thiểu để dữ liệu account đủ điều kiện tồn tại.
+Account owner|Program ID được giao quyền sửa dữ liệu account.
+Account data|Mảng byte lưu trạng thái của account Solana.
+Executable account|Account chứa mã hoặc đại diện program có thể được gọi.
+Signer account|Account bắt buộc có chữ ký chấp thuận trong transaction.
+Writable account|Account được khai báo có thể thay đổi trạng thái trong instruction.
+Read-only account|Account được khai báo chỉ đọc trong instruction.
+Program Derived Address|Địa chỉ dẫn xuất từ seed và program, không có private key thông thường.
+PDA bump|Byte phụ dùng tìm PDA nằm ngoài đường cong Ed25519.
+Associated Token Account|Tài khoản token chuẩn gắn với owner và mint.
+Token mint account|Account mô tả loại token với cung, số thập phân và quyền.
+SPL Token program|Program triển khai thao tác token chuẩn trong Solana.
+Token-2022|Phiên bản token program hỗ trợ nhiều phần mở rộng.
+Token account|Account ghi số lượng một loại token của một owner.
+Address Lookup Table|Bảng địa chỉ giúp giao dịch versioned tham chiếu account gọn hơn.
+Versioned transaction|Định dạng giao dịch Solana hỗ trợ version và lookup table.
+Compute unit|Đơn vị đo tài nguyên thực thi của chương trình Solana.
+Compute budget instruction|Instruction thiết lập một số giới hạn tính toán và phí ưu tiên.
+Priority fee Solana|Khoản phí bổ sung nhằm tăng ưu tiên xử lý giao dịch.
+Cross-Program Invocation|Lời gọi một program từ bên trong một program khác.
+CPI signer seeds|Seed cho phép program ký bằng PDA trong CPI hợp lệ.
+Sysvar account|Account đặc biệt cung cấp thông tin hệ thống khi program chạy.
+System program|Program hệ thống thực hiện thao tác cơ bản với account và SOL.
+Stake program|Program xử lý tài khoản và thao tác staking theo giao thức.
+Vote account|Account giữ dữ liệu phiếu và hoạt động vote của validator.
+Leader schedule Solana|Lịch node được chọn sản xuất block theo các slot.
+Proof of History sequence|Dãy hash liên tiếp làm đồng hồ thứ tự tương đối của Solana.
+Tower BFT|Cơ chế đồng thuận sử dụng bằng chứng thời gian và lockout vote.
+Sealevel runtime|Môi trường thực thi song song dựa trên quyền đọc ghi account.
+Account lock|Khóa truy cập account nhằm kiểm soát xung đột khi chạy song song.
+Write lock conflict|Xung đột khi các giao dịch đồng thời cần ghi cùng account.
+Transaction atomicity Solana|Tất cả instruction thuộc một giao dịch cùng thành công hoặc thất bại.
+Durable nonce account|Account hỗ trợ giao dịch dùng nonce tồn tại lâu hơn blockhash gần nhất.
+Solana RPC|API node cho phép truy vấn trạng thái và gửi giao dịch Solana.
+Solana commitment level|Mức processed, confirmed hoặc finalized của phản hồi RPC.
+Solana devnet|Mạng thử nghiệm cho nhà phát triển, không dùng tài sản mainnet.
+Solana mainnet-beta|Mạng sản xuất mang tài sản SOL thực và program vận hành.
+Solana explorer|Ứng dụng tra cứu account, instruction, block và giao dịch Solana.
+Anchor framework|Khung phát triển program Solana giúp quản lý account và instruction.
+Solana program deployment|Quy trình tải và kích hoạt mã program lên mạng Solana.
+
